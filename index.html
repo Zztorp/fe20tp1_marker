@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href=style.css>
+    <script src= index.js defer></script>
+    <title>Marker</title>
+</head>
+<body>
+    <header></header>
+        <div class=flexContainer>
+    <nav>
+    <ul class="left">
+        <li>Q</li>
+        <li>Add note</li>
+        <li>Search</li>
+        <li>Favourite</li>
+        <li>Print</li>
+        <li>Settings</li>
+        <li>Statistics</li>
+    </ul>
+    </nav>
+    
+    <ul class= "right">
+        <li>
+            <h3>New note</h3>
+            <p>Tell your story..</p>
+        </li>
+        <li>
+            <h3>Shopping for X-mas</h3>
+            <p>Lorem ipsum dolor sit amet consectetur ...</p>
+        </li>
+        <li>
+            <h3>My next novel</h3>
+            <p>Lorem ipsum dolor sit amet consectetur ...</p>
+        </li>
+        <li>
+            <h3>Gingerbread cookies</h3>
+            <p>Lorem ipsum dolor sit amet consectetur ...</p>
+        </li>
+    </ul>
+    
+    <main>
+        <div class="the-editor">
+            <div id="editor">This is some sample content.</div>
+            <script>
+                    ClassicEditor
+                            .create( document.querySelector( '#editor' ) )
+                            .then( editor => {
+                                    console.log( editor );
+                            } )
+                            .catch( error => {
+                                    console.error( error );
+                            });
+                            
+            </script>
+        </div>
+    </main>
+</div>
+    <footer></footer>    
+</body>
+</html>
