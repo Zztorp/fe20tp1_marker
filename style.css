@@ -140,7 +140,7 @@
 #editor{
     flex:1;
     padding-top: 10px;
-    height: 380px;
+    height: 500px;
     margin: 0 auto;
     width: 700px;          
     } 
@@ -156,4 +156,17 @@
     font-size: 20px;
     padding-left: 15px;
 }
-           
+
+#displayDate {
+    display: inline-block;
+    border: none;
+    height: 20px;
+    font-size: 12px;
+    padding-left: 15px;
+}
+
+ 
+#menuDate {
+    font-size: 10px; 
+    font-style: italic;
+}
