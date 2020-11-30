@@ -90,9 +90,28 @@
     mask-size: cover;
     }
 
-.right {
+.page-tool-box {
     flex: 1;
-    max-width: 250px;
+    width: 190px;
+    align-items: center;
+    list-style-type: none;
+    border: none;
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 0px;
+    box-shadow: 3px 3px 5px #ccc;
+}
+
+.page-tool-box li{
+    display: block;
+    min-height: 90px;
+    padding: 15px; 
+    border-bottom: 3px solid lightgray;
+}
+
+.note-list {
+    flex: 1;
+    width: 190px;
     align-items: center;
     list-style-type: none;
     border: none;
@@ -102,29 +121,65 @@
     box-shadow: 3px 3px 5px #ccc;
     }
 
-.right li{
+.note-list li{
     display: block;
     height: 90px;
     padding: 15px; 
     border-bottom: 3px solid lightgray;
+    overflow: hidden;
 }
 
-.right li:nth-child(1){
-    background-color: white;
-    height: 90px;
-}
-
-.right li h3{
+.note-list li h1{
     padding-bottom: 5px;
 }
 
-.right li p{
+.note-list li p{
     font-size: 16px;
 }
 
-.the-editor{
-    padding-top: 100px;
+#editor{
+    flex:1;
+    padding-top: 10px;
+    height: 380px;
     margin: 0 auto;
-    width: 700px;            
+    width: 700px;          
     } 
-                    
+
+#note {
+    border: 1px solid darkgray; 
+    margin-left: 30px;
+}
+
+#title{
+    border: none;
+    height: 60px;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+.search-notes{
+    background-color: #005392;
+    border: 10px solid pink;
+}
+
+
+#tabbed-content li{
+    display: inline-block;
+    padding: 10px 14px;
+    background: #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#tabbed-content .panel{
+    display: none;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
+#tabbed-content .panel.active {
+    display: block;
+}
+
