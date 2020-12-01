@@ -90,7 +90,7 @@
     mask-size: cover;
     }
 
-.topRight {
+.page-tool-box {
     flex: 1;
     width: 190px;
     align-items: center;
@@ -102,14 +102,14 @@
     box-shadow: 3px 3px 5px #ccc;
 }
 
-.topRight li{
+.page-tool-box li{
     display: block;
     min-height: 90px;
     padding: 15px; 
     border-bottom: 3px solid lightgray;
 }
 
-.right {
+.note-list {
     flex: 1;
     width: 190px;
     align-items: center;
@@ -121,7 +121,7 @@
     box-shadow: 3px 3px 5px #ccc;
     }
 
-.right li{
+.note-list li{
     display: block;
     height: 90px;
     padding: 15px; 
@@ -129,11 +129,11 @@
     overflow: hidden;
 }
 
-.right li h3{
+.note-list li h1{
     padding-bottom: 5px;
 }
 
-.right li p{
+.note-list li p{
     font-size: 16px;
 }
 
@@ -156,4 +156,30 @@
     font-size: 20px;
     padding-left: 15px;
 }
-           
+
+.search-notes{
+    background-color: #005392;
+    border: 10px solid pink;
+}
+
+
+#tabbed-content li{
+    display: inline-block;
+    padding: 10px 14px;
+    background: #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#tabbed-content .panel{
+    display: none;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
+#tabbed-content .panel.active {
+    display: block;
+}
+

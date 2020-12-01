@@ -7,55 +7,70 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href=style.css>
-    <script src= index.js defer></script>
+    
     <title>Marker</title>
 </head>
 <body>
-    <header></header>
+    <!-- Do we need the header? Shall we put the blue nav   -->
         <div class=flexContainer>
-    <nav>
-    <ul class="left">
+
+    <!-- The blue tool box -->
+    <div class="tabbed-content">
+    <ul class="left tabs">
         <li>Q</li>
-        <li>Add note</li>
-        <li>Search</li>
+        <li data-target="#addNote #search" class="active">Add note</li>  <!-- Funkar ännu inte    -->
+        <li data-target="#addNote #search" class="active">Search</li> <!-- Funkar ännu inte    -->
         <li>Favourite</li>
         <li>Print</li>
         <li>Settings</li>
         <li>Statistics</li>
     </ul>
-    </nav>
-
-    <div>
-    <ul class="topRight" id="topRight">
-        <li>
-            <h3 class="menuTitle">New note</h3>
-            <p class="menuDate">Tell your story..</p>
-        </li>    
-    </ul>
-    <ul class="right" id="right">
-        <li>
-            <h3 class="menuTitle"></h3>
-            <p class="menuDate"></p>
-        </li>
-        <li>
-            <h3 class="menuTitle"></h3>
-            <p class="menuDate"></p>
-        </li>    
-    </ul>
-   </div>
-    <main>
-        <form id="note">
-            <input type="text" name="title" id="title" value="" placeholder="Give your note a title" required></input>  
-        <!--<div id="date" value=""></div>-->
-        <div id="editor">
-            <p>Write your story...</p>
-        </div>
-
-        <input type="submit" id="submit" value="SAVE NOTE">
-        </form>
-    </main>
+ 
 </div>
 
-    <footer></footer>    
+    <!-- the box that is shown when you click on a tool bar -->
+    <div>
+ <!-- add note  -->
+        <ul class="page-tool-box panel active addNote">
+            <li>
+                <h1 class="noteTitle">New note</h1>
+                <p class="noteDate">Tell your story..</p>
+            </li>   
+        </ul>
+  
+        <ul class="note-list" id="note-list">
+            <li>
+                <p class="noteTitle"></p>
+                <p class="noteDate"></p>
+            </li>
+            <li>
+                <p class="noteTitle"></p>
+                <p class="menuDate"></p>
+            </li>    
+        </ul>
+    </div>
+        <main>
+            <form id="note">
+                <input type="text" name="title" id="title" value="" placeholder="Give your note a title" required>  
+            <!--<div id="date" value=""></div>-->
+            <div id="editor">
+                <p>Write your story...</p>
+            </div>
+
+            <input type="submit" id="submit" value="SAVE NOTE">
+            </form>
+    </main>
+
+<!-- search for notes  -->
+        
+        <form id="search-notes page-tool-box panel">
+            <input type="text" placeholder="Search notes..." />
+          </form>
+
+    
+</div>
+    <script src="index.js"></script> 
+
+    
 </body>
 </html>

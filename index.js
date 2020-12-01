@@ -1,5 +1,6 @@
 
 let editor;
+let menuList = document.querySelector("#note-list");
 
 BalloonEditor
 .create( document.querySelector( '#editor' ) )
@@ -21,24 +22,24 @@ function NoteObject(title, editorData, timestamp) {
 };
 
 //print comment
-function printNote(title, timestamp) {
+function printNote(title, editorData, timestamp) {
 
 //Create html-element
-    let menuList = document.querySelector("#right");
+    
     let li = document.createElement("li");
-    let menuTitle = document.createElement("h3");
+    let noteTitle = document.createElement("h1");
     let menuDate = document.createElement("p");
  
 //Add content
-menuTitle.textContent = title;
+noteTitle.textContent = title;
 menuDate.textContent = timestamp;  
  
  //Add classes
- menuTitle.classList.add('menuTitle');
+ noteTitle.classList.add('noteTitle');
  menuDate.classList.add('menuDate');
 
  //Append to DOM
-li.appendChild(menuTitle);
+li.appendChild(noteTitle);
 li.appendChild(menuDate);
 menuList.prepend(li);
 }
@@ -52,7 +53,7 @@ if (localStorage.length !== 0) {
   //Loop local storage array
     for (var i in allNotes) {
     let displayDate = new Date();
-    printNote(allNotes[i].title,allNotes[i].editorData,displayDate);
+    printNote(allNotes[i].title, allNotes[i].editorData, displayDate);
 }
   
 //Add latest note
@@ -70,3 +71,40 @@ allNotes[allNotes.length] = new NoteObject(title, editorData);
 //convert array of object into string json and save to local storage
 localStorage.setItem("myNotes", JSON.stringify(allNotes));
 });
+
+
+//search for notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+const search = document.forms[1].querySelector('input');
+search.addEventListener('keyup', function(e){
+    const term = e.target.value.toLowerCase();
+    const notes = menuList.getElementsByTagName('li');
+    Array.from(notes).forEach(function(note){
+        const title = note.firstElementChild.textContent;
+        if(title.toLowerCase().indexOf(term) != -1){
+            note.style.display = 'block';
+        } else{
+            note.style.display = 'none';
+        }
+    })
+});
+
+//Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/* <!-- Funkar ännu inte    --> */
+const tabs = document.querySelector('.tabs');
+const panels = document.querySelectorAll('.panel');
+tabs.addEventListener('click', function(e){
+    console.log(e.target.tagName)
+    if(e.target.tagName == 'LI'){
+        const targetPanel = document.querySelector(e.target.dataset.target);
+        panels.forEach(function(panel){
+            if(panel ==targetPanel){
+                panel.classList.add('active');
+            } else {
+            panel.classList.remove('active');
+        }
+    })
+}
+
+})
+
