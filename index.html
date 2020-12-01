@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href=style.css>
+    <script src="index.js" defer></script>
     
     <title>Marker</title>
 </head>
@@ -16,7 +17,7 @@
 
     <!-- The blue tool box -->
     <div class="tabbed-content">
-    <ul class="left tabs">
+    <ul class="leftTabs">
         <li>Q</li>
         <li data-target="#addNote #search" class="active">Add note</li>  <!-- Funkar ännu inte    -->
         <li data-target="#addNote #search" class="active">Search</li> <!-- Funkar ännu inte    -->
@@ -31,22 +32,19 @@
     <!-- the box that is shown when you click on a tool bar -->
     <div>
  <!-- add note  -->
-        <ul class="page-tool-box panel active addNote">
+        <ul class="page-tool-box panel active addNote" id="PanelAddNote">
             <li>
                 <h1 class="noteTitle">New note</h1>
                 <p class="noteDate">Tell your story..</p>
             </li>   
         </ul>
   
-        <ul class="note-list" id="note-list">
+        <ul class="note-list" id="noteList">
             <li>
-                <p class="noteTitle"></p>
-                <p class="noteDate"></p>
-            </li>
-            <li>
-                <p class="noteTitle"></p>
-                <p class="menuDate"></p>
-            </li>    
+                <p class="noteTitle">test</p>
+                <p class="noteDate">test</p>
+                <p class="noteEditorData">test</p>
+            </li>   
         </ul>
     </div>
         <main>
@@ -66,11 +64,8 @@
         <form id="search-notes page-tool-box panel">
             <input type="text" placeholder="Search notes..." />
           </form>
-
-    
+ 
 </div>
-    <script src="index.js"></script> 
-
-    
+ 
 </body>
 </html>
