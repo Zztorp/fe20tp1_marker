@@ -134,7 +134,7 @@
 }
 
 .note-list li p{
-    font-size: 16px;
+    font-size: 16px;s
 }
 
 #editor{
@@ -161,13 +161,7 @@
     display: none;
 } 
 
-<<<<<<< HEAD
-=======
+
 #tabbed-content .panel.active {
     display: block;
 }
-<<<<<<< HEAD
->>>>>>> origin
-
-=======
->>>>>>> anna-dev

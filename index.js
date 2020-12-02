@@ -189,4 +189,3 @@ tabs.addEventListener('click', function(e){
 
 })--> */
 
-  */
