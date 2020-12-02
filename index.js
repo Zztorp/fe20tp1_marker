@@ -170,13 +170,8 @@ function showHide(){
 
 /* 
 
-<<<<<<< HEAD
-/* //Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/* <!-- Funkar ännu inte    --> 
-=======
 //Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 /* <!-- Funkar ännu inte    
->>>>>>> origin
 const tabs = document.querySelector('.tabs');
 const panels = document.querySelectorAll('.panel');
 tabs.addEventListener('click', function(e){
