@@ -1,238 +1,227 @@
-*{
-    margin: 0;
+* {
+  margin: 0;
 }
 
-.flexContainer{
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
+.flexContainer {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
 }
 
 .leftTabs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60px;
-    height: 900px;
-    list-style-type: none;
-    background-color: #005392;
-    border: 1px solid black;
-    border: none;
-    padding-left: 0px;
-    width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+  height: 900px;
+  list-style-type: none;
+  background-color: #005392;
+  border: 1px solid black;
+  border: none;
+  padding-left: 0px;
+  width: 70px;
 }
 
 .leftTabs li {
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    display: block;
-    color: white; 
-    background-color:white;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  display: block;
+  color: white;
+  background-color: white;
 }
 
-.leftTabs li:nth-child(1){
-    text-align: center;
-    height: 60px;
-    width: 100%;
-    font-size: 40px;
-    margin-top: 0px;
-    padding-top: 10px;
-    color: white; 
-    background-color: black;
-    } 
+.leftTabs li:nth-child(1) {
+  text-align: center;
+  height: 60px;
+  width: 100%;
+  font-size: 40px;
+  margin-top: 0px;
+  padding-top: 10px;
+  color: white;
+  background-color: black;
+}
 
-.leftTabs li:nth-child(2){ 
-    margin-top: 50px; 
-    -webkit-mask: url(/img/add.svg) no-repeat 50% 50%;
-    mask: url(/img/add.svg) no-repeat 50% 50%;
-    -webkit-mask-size: cover;
-    mask-size: cover;    
-}   
+.leftTabs li:nth-child(2) {
+  margin-top: 50px;
+  -webkit-mask: url(/img/add.svg) no-repeat 50% 50%;
+  mask: url(/img/add.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
 
 .leftTabs li:nth-child(3) {
-    margin-top: 15px;  
-    -webkit-mask: url(/img/search.svg) no-repeat 50% 50%;
-    mask: url(/img/search.svg) no-repeat 50% 50%;
-    -webkit-mask-size: cover;
-    mask-size: cover;    
+  margin-top: 15px;
+  -webkit-mask: url(/img/search.svg) no-repeat 50% 50%;
+  mask: url(/img/search.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
 }
 
-.leftTabs li:nth-child(4) { 
-    margin-top: 15px; 
-    -webkit-mask: url(/img/favourite.svg) no-repeat 50% 50%;
-    mask: url(/img/favourite.svg) no-repeat 50% 50%;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    }
-
-.leftTabs li:nth-child(5) {  
-    margin-top: 15px; 
-    -webkit-mask: url(/img/print.svg) no-repeat 50% 50%;
-    mask: url(/img/print.svg) no-repeat 50% 50%;
-    -webkit-mask-size: cover;
-    mask-size: cover;
+.leftTabs li:nth-child(4) {
+  margin-top: 15px;
+  -webkit-mask: url(/img/favourite.svg) no-repeat 50% 50%;
+  mask: url(/img/favourite.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
 }
 
-.leftTabs li:nth-child(6) { 
-    margin-top: 15px;  
-    -webkit-mask: url(/img/settings.svg) no-repeat 50% 50%;
-    mask: url(/img/settings.svg) no-repeat 50% 50%;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    }
+.leftTabs li:nth-child(5) {
+  margin-top: 15px;
+  -webkit-mask: url(/img/print.svg) no-repeat 50% 50%;
+  mask: url(/img/print.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
 
-.leftTabs li:nth-child(7) {  
-    margin-top: 15px;
-    -webkit-mask: url(/img/analytics.svg) no-repeat 50% 50%;
-    mask: url(/img/analytics.svg) no-repeat 50% 50%;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    }
+.leftTabs li:nth-child(6) {
+  margin-top: 15px;
+  -webkit-mask: url(/img/settings.svg) no-repeat 50% 50%;
+  mask: url(/img/settings.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.leftTabs li:nth-child(7) {
+  margin-top: 15px;
+  -webkit-mask: url(/img/analytics.svg) no-repeat 50% 50%;
+  mask: url(/img/analytics.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
 
 .page-tool-box {
-    flex: 1;
-    width: 190px;
-    align-items: center;
-    list-style-type: none;
-    border: none;
-    background-color: white;
-    font-family: 'Open Sans', sans-serif;
-    padding-left: 0px;
-    box-shadow: 3px 3px 5px #ccc;
+  flex: 1;
+  width: 190px;
+  align-items: center;
+  list-style-type: none;
+  border: none;
+  background-color: white;
+  font-family: "Open Sans", sans-serif;
+  padding-left: 0px;
+  box-shadow: 3px 3px 5px #ccc;
 }
 
-.page-tool-box li{
-    display: block;
-    min-height: 90px;
-    padding: 15px; 
-    border-bottom: 3px solid lightgray;
+.page-tool-box li {
+  display: block;
+  min-height: 90px;
+  padding: 15px;
+  border-bottom: 3px solid lightgray;
 }
 
 .note-list {
-    flex: 1;
-    width: 190px;
-    align-items: center;
-    list-style-type: none;
-    border: none;
-    background-color: #ebebeb;
-    font-family: 'Open Sans', sans-serif;
-    padding-left: 0px;
-    box-shadow: 3px 3px 5px #ccc;
-    }
-
-.note-list > li{
-    display: block;
-    position: relative;
-    height: 90px;
-    padding: 15px;  
-    border-bottom: 3px solid lightgray;
-    cursor: pointer;
-    overflow: hidden;
+  flex: 1;
+  width: 190px;
+  align-items: center;
+  list-style-type: none;
+  border: none;
+  background-color: #ebebeb;
+  font-family: "Open Sans", sans-serif;
+  padding-left: 0px;
+  box-shadow: 3px 3px 5px #ccc;
 }
 
-.note-list > li{
-    display: block;
-    height: 90px;
-    padding: 15px;  
-    border-bottom: 3px solid lightgray;
-    cursor: pointer;
-    overflow: hidden;
+.note-list > li {
+  display: block;
+  position: relative;
+  height: 90px;
+  padding: 15px;
+  border-bottom: 3px solid lightgray;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.active, .note-list > li:hover {
-    background-color: white;
-    color: black;
-    text-overflow: ellipsis;
-  }
+.note-list > li {
+  display: block;
+  height: 90px;
+  padding: 15px;
+  border-bottom: 3px solid lightgray;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.active,
+.note-list > li:hover {
+  background-color: white;
+  color: black;
+  text-overflow: ellipsis;
+}
 
 .noteTitle {
-    font-size: 20px;
-    margin-bottom: 5px;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .noteDate {
-    font-size: 14px;
-    margin-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .noteEditorData {
-    font-size: 14px;
+  font-size: 14px;
 }
 
-.search-notes{
-    background-color: #005392;
-    border: 10px solid pink;
+.search-notes {
+  background-color: #005392;
+  border: 10px solid pink;
 }
 
-#tabbed-content li{
-    display: inline-block;
-    padding: 10px 14px;
-    background: #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
+#tabbed-content li {
+  display: inline-block;
+  padding: 10px 14px;
+  background: #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
-#tabbed-content .panel{
-    display: none;
-    border: 1px solid #ddd;
-    padding: 0 10px;
-    border-radius: 4px;
+#tabbed-content .panel {
+  display: none;
+  border: 1px solid #ddd;
+  padding: 0 10px;
+  border-radius: 4px;
 }
 
 #tabbed-content .panel.active {
-    display: block;
+  display: block;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> anna-dev
-=======
-
-/* CK editor styling */ 
+/* CK editor styling */
 
 #note {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 #note input[type="submit"] {
-    background-color: #005392;
-    color: white;
-    border: none;
-    width: 120px; 
-    height: 40px;
-    font-size: 16px;
-    margin-top: 1rem;
+  background-color: #005392;
+  color: white;
+  border: none;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  margin-top: 1rem;
 }
 
 .ck.ck-editor__editable > .ck-placeholder::before {
-    color: darkgray;
-    font-family: 'Open Sans', sans-serif;
+  color: darkgray;
+  font-family: "Open Sans", sans-serif;
 }
 
 #editor {
-    flex: 1 1 auto;
-    padding-top: 10px;
-    min-height: 300px;
-    min-width: 450px;
-    max-width: 700px;          
-    } 
-
-#title {
-    display: block; 
-    width: 90%;
-    border: none;
-    outline: none;
-    font-size: 20px;
-    padding: 10px 10px 0px 10px;
-    margin-bottom: 0px;
-    font-family: 'Open Sans', sans-serif;
+  flex: 1 1 auto;
+  padding-top: 10px;
+  min-height: 300px;
+  min-width: 450px;
+  max-width: 700px;
 }
 
-
-
-
-
->>>>>>> anna-dev
+#title {
+  display: block;
+  width: 90%;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  padding: 10px 10px 0px 10px;
+  margin-bottom: 0px;
+  font-family: "Open Sans", sans-serif;
+}
