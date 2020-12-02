@@ -121,47 +121,49 @@
     box-shadow: 3px 3px 5px #ccc;
     }
 
-.note-list li{
+.note-list > li{
     display: block;
+    position: relative;
     height: 90px;
-    padding: 15px; 
+    padding: 15px;  
     border-bottom: 3px solid lightgray;
+    cursor: pointer;
     overflow: hidden;
 }
 
-.note-list li h1{
-    padding-bottom: 5px;
+.note-list > li{
+    display: block;
+    height: 90px;
+    padding: 15px;  
+    border-bottom: 3px solid lightgray;
+    cursor: pointer;
+    overflow: hidden;
 }
 
-.note-list li p{
-    font-size: 16px;
-}
+.active, .note-list > li:hover {
+    background-color: white;
+    color: black;
+    text-overflow: ellipsis;
+  }
 
-#editor{
-    flex:1;
-    padding-top: 10px;
-    height: 380px;
-    margin: 0 auto;
-    width: 700px;          
-    } 
-
-#note {
-    border: 1px solid darkgray; 
-    margin-left: 30px;
-}
-
-#title{
-    border: none;
-    height: 60px;
+.noteTitle {
     font-size: 20px;
-    padding-left: 15px;
+    margin-bottom: 5px;
+}
+
+.noteDate {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.noteEditorData {
+    font-size: 14px;
 }
 
 .search-notes{
     background-color: #005392;
     border: 10px solid pink;
 }
-
 
 #tabbed-content li{
     display: inline-block;
@@ -182,3 +184,48 @@
 #tabbed-content .panel.active {
     display: block;
 }
+
+/* CK editor styling */ 
+
+#note {
+    margin-left: 30px;
+}
+
+#note input[type="submit"] {
+    background-color: #005392;
+    color: white;
+    border: none;
+    width: 120px; 
+    height: 40px;
+    font-size: 16px;
+    margin-top: 1rem;
+}
+
+.ck.ck-editor__editable > .ck-placeholder::before {
+    color: darkgray;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#editor {
+    flex: 1 1 auto;
+    padding-top: 10px;
+    min-height: 300px;
+    min-width: 450px;
+    max-width: 700px;          
+    } 
+
+#title {
+    display: block; 
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 10px 10px 0px 10px;
+    margin-bottom: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
+

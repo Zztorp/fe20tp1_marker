@@ -3,15 +3,17 @@ let editor;
 let menuList = document.querySelector("#noteList");
 
 BalloonEditor
-.create( document.querySelector( '#editor' ) )
-.then( newEditor => {
-editor = newEditor;
-} )
-.catch( error => {
-console.error( error );
-} );
+    .create(document.querySelector('#editor'), {
+        placeholder: 'Write your note here ...'
+    })
+    .then(newEditor => {
+        editor = newEditor;
+    })
+    .catch(error => {
+        console.error(error);
+    });
 
-// array of notes
+// array of created notes
 var allNotes = [];
 
 //object constructur
@@ -21,91 +23,91 @@ function NoteObject(title, editorData, timestamp) {
     this.timestamp = timestamp;
 };
 
-//print comment
+//function to print comments in left note-menu
 function printNote(title, editorData, timestamp) {
 
-//Create html-elements
-let menuList = document.querySelector("#noteList");
-let li = document.createElement("li");
-li.setAttribute("data-id", timestamp);
-let noteTitle = document.createElement("h3");
-let noteEditorData = document.createElement("p");
-let noteDate = document.createElement("p");
- 
-//Add content
-noteTitle.textContent = title;
-noteDate.textContent = timestamp;
-noteEditorData.textContent = editorData;  
- 
- //Add classes
- noteTitle.classList.add('noteTitle');
- noteDate.classList.add('noteDate');
- noteEditorData.classList.add('noteEditorData');
+    //Create html-elements in left note-menu
+    let menuList = document.querySelector("#noteList");
+    let li = document.createElement("li");
+    li.setAttribute("data-id", timestamp);
+    let noteTitle = document.createElement("h3");
+    let noteEditorData = document.createElement("p");
+    let noteDate = document.createElement("p");
 
- //Append to DOM
-li.appendChild(noteTitle);
-li.appendChild(noteDate);
-li.appendChild(noteEditorData);
-menuList.prepend(li);
+    //Add text content in left note-menu
+    noteTitle.textContent = title;
+    noteDate.textContent = moment().format('ll');
+    const strippedString = editorData.replace(/(<([^>]+)>)/gi, "");
+    noteEditorData.textContent = strippedString;
+
+    //Add classes to text in left note-menu
+    noteTitle.classList.add('noteTitle');
+    noteDate.classList.add('noteDate');
+    noteEditorData.classList.add('noteEditorData');
+
+    //Append to DOM in note-menu
+    li.appendChild(noteTitle);
+    li.appendChild(noteDate);
+    li.appendChild(noteEditorData);
+    menuList.prepend(li);
 }
 
-//Fetch allPosts from local storage, if it exists
+//Fetch allPosts from local storage, if not empty. 
 if (localStorage.length !== 0) {
-    allNotes = JSON.parse(localStorage.getItem("myNotes")); 
-    console.log(allNotes);
-    }
-  
-  //Loop local storage array
-    for (var i in allNotes) {
+    allNotes = JSON.parse(localStorage.getItem("myNotes"));
+}
+
+//Loop local array and print key values from objects in left note-menu. 
+for (var i in allNotes) {
     printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp);
 }
-  
-//Add latest note
-  const createNote = document.forms.note;
-  createNote.addEventListener("submit", function(e){
-  e.preventDefault();
-  let title = createNote.querySelector('#title').value;
-  let editorData = editor.getData();
-  let timestamp = Date.now();
-  printNote(title, editorData, timestamp);
-  //ev. byta till knapp
-  
-//Save latest note to NoteObject
-allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp);
 
-//convert array of object into string json and save to local storage
-localStorage.setItem("myNotes", JSON.stringify(allNotes));
+//Function add latest note to array and print note in left note-menu. 
+const createNote = document.forms.note;
+createNote.addEventListener("submit", function (e) {
+    e.preventDefault();
+    let title = createNote.querySelector('#title').value;
+    let editorData = editor.getData();
+    let timestamp = Date.now();
+    printNote(title, editorData, timestamp);
+    //ev. byta till knapp
+
+    //Create new notebject and add to array.
+    allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp);
+
+    //Convert array of object into string, and save to local storage
+    localStorage.setItem("myNotes", JSON.stringify(allNotes));
 });
 
-//open note from list in CK Editor
+//Click on note in note-menu and display in CK Editor
 document.querySelector('ul.note-list').addEventListener('click', function (evt) {
     let clickedLI = evt.target.closest('li');
     let clickedID = Number(clickedLI.getAttribute('data-id'));
     let clickedNoteObject = allNotes.find(note => note.timestamp === clickedID)
     editor.setData(clickedNoteObject.editorData);
-    document.getElementById("title").value = clickedNoteObject.title
-  
-  });
+    document.getElementById("title").value = clickedNoteObject.title;
+    document.getElementById("dateMain").value = clickedNoteObject.timestamp;
+});
 
 
 //search for notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 const search = document.forms[1].querySelector('input');
-search.addEventListener('keyup', function(e){
+search.addEventListener('keyup', function (e) {
     const term = e.target.value.toLowerCase();
     const notes = menuList.getElementsByTagName('li');
-    Array.from(notes).forEach(function(note){
+    Array.from(notes).forEach(function (note) {
         const title = note.firstElementChild.textContent;
-        if(title.toLowerCase().indexOf(term) != -1){
+        if (title.toLowerCase().indexOf(term) != -1) {
             note.style.display = 'block';
-        } else{
+        } else {
             note.style.display = 'none';
         }
     })
 });
 
 //Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/* <!-- Funkar ännu inte    
+/* <!-- Funkar ännu inte
 const tabs = document.querySelector('.tabs');
 const panels = document.querySelectorAll('.panel');
 tabs.addEventListener('click', function(e){
