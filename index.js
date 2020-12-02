@@ -1,4 +1,3 @@
-
 let editor;
 let menuList = document.querySelector("#noteList");
 
@@ -62,9 +61,21 @@ for (var i in allNotes) {
     printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp);
 }
 
+// ---- remove note from sidebar
+function unprint(title) {
+    let menuList = document.querySelector("#noteList").children;
+    for (var i = 0; i < menuList.length; i++) {
+        if (menuList[i].getElementsByClassName('noteTitle')[0].textContent == title) {
+            menuList[i].remove();
+        }
+    }
+
+}
+
+
 //Function add latest note to array and print note in left note-menu. 
 const createNote = document.forms.note;
-createNote.addEventListener("submit", function (e) {
+createNote.addEventListener("submit", function(e) {
     e.preventDefault();
     let title = createNote.querySelector('#title').value;
     let editorData = editor.getData();
@@ -80,7 +91,7 @@ createNote.addEventListener("submit", function (e) {
 });
 
 //Click on note in note-menu and display in CK Editor
-document.querySelector('ul.note-list').addEventListener('click', function (evt) {
+document.querySelector('ul.note-list').addEventListener('click', function(evt) {
     let clickedLI = evt.target.closest('li');
     let clickedID = Number(clickedLI.getAttribute('data-id'));
     let clickedNoteObject = allNotes.find(note => note.timestamp === clickedID)
@@ -90,7 +101,42 @@ document.querySelector('ul.note-list').addEventListener('click', function (evt) 
 });
 
 
-//search for notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//  ----- new note button
+document.querySelector("body > div.flexContainer > div.tabbed-content > ul > li:nth-child(2)").addEventListener("click", function(e) {
+    location.reload();
+})
+
+
+//  ----- delete note button
+
+document.querySelector("#deleteNote").addEventListener("click", function(e) {
+    const currentNote = document.forms.note;
+    let title = currentNote.querySelector('#title').value;
+    unprint(title);
+    allNotes = JSON.parse(localStorage.getItem("myNotes"));
+    allNotes = allNotes.filter(function(obj) {
+        return obj.title !== title;
+    });
+    localStorage.setItem("myNotes", JSON.stringify(allNotes));
+
+});
+
+
+
+// ---- - print note button
+
+document.querySelector("body > div.flexContainer > div.tabbed-content > ul > li:nth-child(5)").addEventListener("click", function(e) {
+        var divContents = document.querySelector("#editor").innerHTML;
+        var a = window.open('', '', 'height=500, width=500');
+        a.document.write('<html>');
+        a.document.write('<body > <h1>');
+        a.document.write(divContents);
+        a.document.write('</body></html>');
+        a.document.close();
+        a.print();
+    })
+    
+    //search for notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 const search = document.forms[1].querySelector('input');
 search.addEventListener('keyup', function (e) {
@@ -116,26 +162,3 @@ btnSearch.addEventListener('click', function (e) {
         searchNotes.style.display = "none";
     }
 });
-
-
-
-//Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/* <!-- Funkar ännu inte
-const tabs = document.querySelector('.tabs');
-const panels = document.querySelectorAll('.panel');
-tabs.addEventListener('click', function(e){
-    console.log(e.target.tagName)
-    if(e.target.tagName == 'LI'){
-        const targetPanel = document.querySelector(e.target.dataset.target);
-        panels.forEach(function(panel){
-            if(panel ==targetPanel){
-                panel.classList.add('active');
-            } else {
-            panel.classList.remove('active');
-        }
-    })
-}
-
-})--> */
-
-
