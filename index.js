@@ -1,6 +1,6 @@
 
 let editor;
-let menuList = document.querySelector("#note-list");
+let menuList = document.querySelector("#noteList");
 
 BalloonEditor
 .create( document.querySelector( '#editor' ) )
@@ -24,23 +24,28 @@ function NoteObject(title, editorData, timestamp) {
 //print comment
 function printNote(title, editorData, timestamp) {
 
-//Create html-element
-    
-    let li = document.createElement("li");
-    let noteTitle = document.createElement("h1");
-    let menuDate = document.createElement("p");
+//Create html-elements
+let menuList = document.querySelector("#noteList");
+let li = document.createElement("li");
+li.setAttribute("data-id", timestamp);
+let noteTitle = document.createElement("h3");
+let noteEditorData = document.createElement("p");
+let noteDate = document.createElement("p");
  
 //Add content
 noteTitle.textContent = title;
-menuDate.textContent = timestamp;  
+noteDate.textContent = timestamp;
+noteEditorData.textContent = editorData;  
  
  //Add classes
  noteTitle.classList.add('noteTitle');
- menuDate.classList.add('menuDate');
+ noteDate.classList.add('noteDate');
+ noteEditorData.classList.add('noteEditorData');
 
  //Append to DOM
 li.appendChild(noteTitle);
-li.appendChild(menuDate);
+li.appendChild(noteDate);
+li.appendChild(noteEditorData);
 menuList.prepend(li);
 }
 
@@ -52,8 +57,7 @@ if (localStorage.length !== 0) {
   
   //Loop local storage array
     for (var i in allNotes) {
-    let displayDate = new Date();
-    printNote(allNotes[i].title, allNotes[i].editorData, displayDate);
+    printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp);
 }
   
 //Add latest note
@@ -64,13 +68,24 @@ if (localStorage.length !== 0) {
   let editorData = editor.getData();
   let timestamp = Date.now();
   printNote(title, editorData, timestamp);
+  //ev. byta till knapp
   
 //Save latest note to NoteObject
-allNotes[allNotes.length] = new NoteObject(title, editorData);
+allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp);
 
 //convert array of object into string json and save to local storage
 localStorage.setItem("myNotes", JSON.stringify(allNotes));
 });
+
+//open note from list in CK Editor
+document.querySelector('ul.note-list').addEventListener('click', function (evt) {
+    let clickedLI = evt.target.closest('li');
+    let clickedID = Number(clickedLI.getAttribute('data-id'));
+    let clickedNoteObject = allNotes.find(note => note.timestamp === clickedID)
+    editor.setData(clickedNoteObject.editorData);
+    document.getElementById("title").value = clickedNoteObject.title
+  
+  });
 
 
 ///search function:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -155,8 +170,13 @@ function showHide(){
 
 /* 
 
+<<<<<<< HEAD
 /* //Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 /* <!-- Funkar ännu inte    --> 
+=======
+//Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/* <!-- Funkar ännu inte    
+>>>>>>> origin
 const tabs = document.querySelector('.tabs');
 const panels = document.querySelectorAll('.panel');
 tabs.addEventListener('click', function(e){
@@ -172,6 +192,6 @@ tabs.addEventListener('click', function(e){
     })
 }
 
-})
+})--> */
 
   */

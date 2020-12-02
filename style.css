@@ -8,7 +8,7 @@
     flex-wrap: wrap;
 }
 
-.left {
+.leftTabs {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +22,7 @@
     width: 70px;
 }
 
-.left li {
+.leftTabs li {
     width: 40px;
     height: 40px;
     margin: 10px;
@@ -31,7 +31,7 @@
     background-color:white;
 }
 
-.left li:nth-child(1){
+.leftTabs li:nth-child(1){
     text-align: center;
     height: 60px;
     width: 100%;
@@ -42,7 +42,7 @@
     background-color: black;
     } 
 
-.left li:nth-child(2){ 
+.leftTabs li:nth-child(2){ 
     margin-top: 50px; 
     -webkit-mask: url(/img/add.svg) no-repeat 50% 50%;
     mask: url(/img/add.svg) no-repeat 50% 50%;
@@ -50,7 +50,7 @@
     mask-size: cover;    
 }   
 
-.left li:nth-child(3) {
+.leftTabs li:nth-child(3) {
     margin-top: 15px;  
     -webkit-mask: url(/img/search.svg) no-repeat 50% 50%;
     mask: url(/img/search.svg) no-repeat 50% 50%;
@@ -58,7 +58,7 @@
     mask-size: cover;    
 }
 
-.left li:nth-child(4) { 
+.leftTabs li:nth-child(4) { 
     margin-top: 15px; 
     -webkit-mask: url(/img/favourite.svg) no-repeat 50% 50%;
     mask: url(/img/favourite.svg) no-repeat 50% 50%;
@@ -66,7 +66,7 @@
     mask-size: cover;
     }
 
-.left li:nth-child(5) {  
+.leftTabs li:nth-child(5) {  
     margin-top: 15px; 
     -webkit-mask: url(/img/print.svg) no-repeat 50% 50%;
     mask: url(/img/print.svg) no-repeat 50% 50%;
@@ -74,7 +74,7 @@
     mask-size: cover;
 }
 
-.left li:nth-child(6) { 
+.leftTabs li:nth-child(6) { 
     margin-top: 15px;  
     -webkit-mask: url(/img/settings.svg) no-repeat 50% 50%;
     mask: url(/img/settings.svg) no-repeat 50% 50%;
@@ -82,7 +82,7 @@
     mask-size: cover;
     }
 
-.left li:nth-child(7) {  
+.leftTabs li:nth-child(7) {  
     margin-top: 15px;
     -webkit-mask: url(/img/analytics.svg) no-repeat 50% 50%;
     mask: url(/img/analytics.svg) no-repeat 50% 50%;
@@ -161,4 +161,13 @@
     display: none;
 } 
 
+<<<<<<< HEAD
+=======
+#tabbed-content .panel.active {
+    display: block;
+}
+<<<<<<< HEAD
+>>>>>>> origin
 
+=======
+>>>>>>> anna-dev
