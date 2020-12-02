@@ -1,80 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/balloon/ckeditor.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href=style.css>
+    <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
-    
-    <title>Marker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <title>Quire, notes for life</title>
 </head>
+
 <body>
     <!-- Do we need the header? Shall we put the blue nav   -->
-        <div class=flexContainer>
+    <div class=flexContainer>
 
-    <!-- The blue tool box -->
-    <div class="tabbed-content">
-    <ul class="leftTabs">
-        <li>Q</li>
-        <li class="btnAddNote">Add note</li>  
-        <li class="btnSearch">Search</li> 
-        <!-- <li>Favourite</li>
-        <li>Print</li>
-        <li>Settings</li>
-        <li>Statistics</li> -->
-    </ul>
- 
-</div>
+        <!-- The blue tool box -->
+        <div class="tabbed-content">
+            <ul class="leftTabs">
+                <li>Q</li>
+                <li id="btnAddNote">Add note</li>
+                <li id="btnSearch">Search</li>
+                <li>Favourite</li>
+                <li>Print</li>
+                <!--<li>Settings</li>
+                <li>Statistics</li>-->
+            </ul>
 
-    <!-- the box that is shown when you click on a tool bar -->
-    <div>
- <!-- add note  -->
-        <ul class="page-tool-box panel active addNote" id="PanelAddNote">
-            <li>
-                <h1 class="noteTitle">New note</h1>
-                <p class="noteDate">Tell your story..</p>
-            </li>   
-        </ul>
-  
-        <ul class="note-list" id="noteList">
-            <li>
-                <p class="noteTitle">test</p>
-                <p class="noteDate">test</p>
-                <p class="noteEditorData">test</p>
-            </li>   
-        </ul>
-    </div>
+        </div>
+
+        <!-- the box that is shown when you click on a tool bar -->
+        <div>
+            <!-- add note  -->
+            <ul class="page-tool-box panel active addNote" id="PanelAddNote">
+                <li>
+                    <h1 class="noteTitle">New note</h1>
+                    <p class="noteDate">Tell your story..</p>
+                </li>
+            </ul>
+
+            <ul class="note-list" id="noteList">
+                <li>
+                    <p class="noteTitle">test</p>
+                    <p class="noteDate">test</p>
+                    <p class="noteEditorData">test</p>
+                </li>
+            </ul>
+        </div>
         <main>
-            <!-- add a note -->
             <form id="note">
-                <input type="text" name="title" id="title" value="" placeholder="Give your note a title" required>  
-            <!--<div id="date" value=""></div>-->
-            <div id="editor">
-                <p>Write your story...</p>
-            </div>
-
-            <input type="submit" id="submit" value="SAVE NOTE">
+                <fieldset>
+                    <input type="text" name="title" id="title" value="" placeholder="Give your note a title" required>
+                    <div id="editor"></div>
+                </fieldset>
+                <input type="submit" id="submitNote" value="SAVE NOTE">
             </form>
-            
-            <!-- search for notes  -->
-            <div id="searchNotes"> 
-                <form id="search-notes">
-                    <input type="text" placeholder="Search notes..." />
-                </form>
-            </div>
-    
-        
- 
+        </main>
 
-<!-- search for notes  -->
-<form id="search-notes page-tool-box panel">
-    <input type="text" placeholder="Search notes..." />
-  </form>
- 
-</div>
- 
+        <!-- search for notes  -->
+
+        <form id="searchNotes">
+            <input type="text" placeholder="Search notes..." />
+        </form>
+
+    </div>
+
 </body>
+
 </html>
