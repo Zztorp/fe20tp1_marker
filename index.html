@@ -16,14 +16,14 @@
 
     <!-- The blue tool box -->
     <div class="tabbed-content">
-    <ul class="left tabs">
+    <ul class="left tabs">  <!--classen hette "left tabs" -->
         <li>Q</li>
-        <li data-target="#addNote #search" class="active">Add note</li>  <!-- Funkar ännu inte    -->
-        <li data-target="#addNote #search" class="active">Search</li> <!-- Funkar ännu inte    -->
-        <li>Favourite</li>
+        <li class="btnAddNote">Add note</li>  
+        <li class="btnSearch">Search</li> 
+        <!-- <li>Favourite</li>
         <li>Print</li>
         <li>Settings</li>
-        <li>Statistics</li>
+        <li>Statistics</li> -->
     </ul>
  
 </div>
@@ -50,6 +50,7 @@
         </ul>
     </div>
         <main>
+            <!-- add a note -->
             <form id="note">
                 <input type="text" name="title" id="title" value="" placeholder="Give your note a title" required>  
             <!--<div id="date" value=""></div>-->
@@ -60,16 +61,20 @@
             <input type="submit" id="submit" value="SAVE NOTE">
             </form>
     </main>
-
-<!-- search for notes  -->
-        
-        <form id="search-notes page-tool-box panel">
-            <input type="text" placeholder="Search notes..." />
-          </form>
-
+            
+            <!-- search for notes  -->
+            <div id="searchNotes"> 
+                <form id="search-notes">
+                    <input type="text" placeholder="Search notes..." />
+                </form>
+            </div>
     
-</div>
-    <script src="index.js"></script> 
+        
+    </div>
+        <script src="index.js"></script> 
+    </main>
+
+
 
     
 </body>

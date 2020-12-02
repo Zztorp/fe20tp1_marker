@@ -73,24 +73,90 @@ localStorage.setItem("myNotes", JSON.stringify(allNotes));
 });
 
 
-//search for notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+///search function:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//search function
+/* var btnSearch  = document.querySelector('.btnSearch')
+    btnSearch.addEventListener('click', function(e){
+        console.log(e.target);
+        console.log(e);
+    })  */
+ 
+ var btnSearch  = document.querySelector('.btnSearch')
+    btnSearch.addEventListener('click', function(e){
 
-const search = document.forms[1].querySelector('input');
-search.addEventListener('keyup', function(e){
-    const term = e.target.value.toLowerCase();
-    const notes = menuList.getElementsByTagName('li');
-    Array.from(notes).forEach(function(note){
-        const title = note.firstElementChild.textContent;
-        if(title.toLowerCase().indexOf(term) != -1){
-            note.style.display = 'block';
-        } else{
-            note.style.display = 'none';
+        document.getElementById('#searchNotes').style.display="block";
+        /* if (btnSearch.style.display === "none") {
+            
+        } else {
+            btnSearch.style.display = "none";
+        } */
+      
+    });  
+
+  /*   var btnSearch  = document.querySelector('.btnSearch')
+    
+    btnSearch.addEventListener('click', function(e){
+        var searchNotes = document.getElementsByClassName('.searchNotes');
+        //console.log('hej');
+        //document.searchNotes.style.display == "block";
+    });
+
+ */
+
+
+
+    /*     }
+
+
+    }) 
+
+var searchNotes = document.getElementsByClassName('.searchNotes')
+var btnSearch  = document.querySelector('.btnSearch')
+   
+    function searchFunction() {
+            if searchNotes.style.display === "none") {
+                searchNotes.style.display = "block";
+        } else {
+            searchNotesh.style.display = "none";
         }
-    })
-});
+      } 
+ */
+ //test 2'
+/* var btnSearch
+function showHide(){
+    if (btnSearch==1){
+        document.getElementsByClassName('.searchNotes').style.display="block";
+        return btnSearch=0;
+    }else{
+        document.getElementsByClassName('.searchNotes').style.display="none";
+        return
+        }
+    } 
+   
+ */
 
-//Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/* <!-- Funkar ännu inte    --> */
+
+
+    const search = document.forms[1].querySelector('input');
+    search.addEventListener('keyup', function(e){
+        const term = e.target.value.toLowerCase();
+        const notes = menuList.getElementsByTagName('li');
+        Array.from(notes).forEach(function(note){
+            const title = note.firstElementChild.textContent;
+            if(title.toLowerCase().indexOf(term) != -1){
+                note.style.display = 'block';
+            } else{
+                note.style.display = 'none';
+            }
+        })
+    });
+    
+
+
+/* 
+
+/* //Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/* <!-- Funkar ännu inte    --> 
 const tabs = document.querySelector('.tabs');
 const panels = document.querySelectorAll('.panel');
 tabs.addEventListener('click', function(e){
@@ -108,3 +174,4 @@ tabs.addEventListener('click', function(e){
 
 })
 
+  */
