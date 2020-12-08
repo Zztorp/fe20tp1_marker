@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+body{
+  background: #3A3B3C;
+}
+
 /* --- RESPONSIVE TWEAKS */
 .flexContainer {
   /* display: flex; */
@@ -13,6 +17,7 @@
   margin-left: 60px;
 }
 
+
 /* --- RESPONSIVE TWEAKS */
 
 .leftTabs {
@@ -22,7 +27,7 @@
   width: 60px;
   height: 100%;
   z-index: 1;
-  position: fixed;
+    position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
@@ -113,32 +118,33 @@
   border-radius: 4px;
   font-size: 16px;
   background-color: white;
-  background-image: url("/img/searchicon.png");
-  background-position: 10px 10px;
+  background-image: url('/img/searchicon.png');
+  background-position: 10px 10px; 
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 /* --- RESPONSIVE TWEAKS */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width:900px) {
   /* For mobile phones: */
-  .notesList {
-    width: calc(100% - 10px) !important; /* display: block; */
+  .notesList{
+    width: calc(100% - 10px)!important;    /* display: block; */
+    
   }
-  .note-list > li {
-    height: 45px !important;
+  .note-list > li{
+    height:45px!important;
   }
-  .noteContainer {
-    margin: 5px !important;
-    width: calc(100% - 10px) !important;
+  .noteContainer{
+    margin: 5px!important;
+    width: calc(100% - 10px)!important; 
   }
-  #editor {
-    height: 100% !important;
+  #editor{
+    height: 100%!important;
   }
 }
 /* --- RESPONSIVE TWEAKS */
-.notesList {
+.notesList{
   float: left;
   width: 190px;
 }
@@ -258,6 +264,7 @@
   margin-left: 1rem;
 }
 
+
 /* --- DELETE NOTE BUTTON */
 .noteContainer input[type="button"] {
   background-color: #005392;
@@ -268,6 +275,7 @@
   font-size: 16px;
   margin-top: 1rem;
   margin-left: 1rem;
+
 }
 
 .ck.ck-editor__editable > .ck-placeholder::before {
@@ -292,60 +300,3 @@
   font-family: "Open Sans", sans-serif;
 }
 
-/*FAVORITE CSS*/
-
-#favorite {
-  height: 20px;
-  width: 20px;
-  display: flex;
-  float: right; /*Fixa så det inte behövs float + margin-top*/
-  margin-top: -50px;
-}
-
-
-/*Modal window*/
-.bg-modal{
-  border: 2px solid black;
-  width: 400px;
-  border-radius: 5px;
-  height: 300px;
-  background-color: rgba(0, 0, 0, 0.7);
-  opacity: 0.7;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display:none; /*This will hide all the child elements */
-}
-
-.modal-content{
-  width: 380px;
-  height: 280px;
-  background-color: white;
-  border-radius: 5px;
-  text-align: center; 
-}
-h2{
-  font-size: 30px;
-  margin: 25px 0 40px 0 ;
-}
-
-.exit{
-  position: absolute;
-  top: 0;
-  right: 14px;
-  padding: 10px 10px;
-  font-size: 42px;
-  transform: rotate(45deg);
-  cursor: pointer;
-}
-
-.modal-themes{
-  padding:20px;
-}
-
-.modal-close-btn{
-  padding-top: 20px;
-}

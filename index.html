@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="style.css">
     <link rel="tab icon" href="img/Q.png" />
     <script src="index.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -26,7 +27,7 @@
             <li>Search</li>
             <li id="listFavorites">Favourite</li>
             <li>Print</li>
-            <li>Settings</li>
+            <li id="btnSettings">Settings</li>
             <!-- <li>Statistics</li>-->
         </ul>
 
@@ -69,9 +70,20 @@
         </div>
         <!-- search for notes  -->
 
-
-
-
+        <!--   Modal section -->
+        <div class="bg-modal">
+            <div class="modal-content">
+                <h2>Pick your theme</h2>
+                <div class="exit">+</div>
+                <div class="modal-themes">
+                    <button onclick="swapStyleSheet ('style.css')">Default</button>
+                    <button onclick="swapStyleSheet ('darkmode.css')">Night mode</button>
+                </div>
+                <div class="modal-close-btn">
+                    <button class="close">Close</button>
+                </div>
+            </div>
+        </div>
 
     </div>
 
