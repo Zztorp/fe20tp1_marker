@@ -142,6 +142,18 @@
   float: left;
   width: 190px;
 }
+.search {
+  flex: 1;
+  /* width: 190px; */
+  align-items: center;
+  list-style-type: none;
+  border: none;
+  background-color: white;
+  font-family: "Open Sans", sans-serif;
+  padding-left: 0px;
+  box-shadow: 3px 3px 5px #ccc;
+  }
+
 .page-tool-box {
   flex: 1;
   /* width: 190px; */
@@ -152,6 +164,7 @@
   font-family: "Open Sans", sans-serif;
   padding-left: 0px;
   box-shadow: 3px 3px 5px #ccc;
+  padding: 15px;
 }
 
 .page-tool-box li {
@@ -183,18 +196,15 @@
   overflow: hidden;
 }
 
-.note-list > li {
-  display: block;
-  height: 90px;
-  padding: 15px;
-  border-bottom: 3px solid lightgray;
-  cursor: pointer;
-  overflow: hidden;
-}
 
-.active,
 .note-list > li:hover {
   background-color: white;
+  color: black;
+  text-overflow: ellipsis;
+}
+
+.active, .note-list > li:hover {
+  background-color: #d7ecf7;
   color: black;
   text-overflow: ellipsis;
 }

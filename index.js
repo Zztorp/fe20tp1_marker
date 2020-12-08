@@ -7,6 +7,7 @@ let noteEditorData = document.createElement("p");
 let noteDate = document.createElement("p");
 let favoriteImg = document.createElement("img");
 
+/* ========== CK Editor ================== */
 BalloonEditor
     .create(document.querySelector('#editor'), {
         placeholder: 'Write your note here ...'
@@ -66,9 +67,9 @@ function printNote(title, editorData, timestamp, favorite) {
     menuList.prepend(li);
 
     //From regular-star(false) to solid-star(true)
-    if(favorite == "true"){
+    if (favorite == "true") {
         favoriteImg.src = "img/star-solid.svg";
-    }else if(favorite == "false"){
+    } else if (favorite == "false") {
         favoriteImg.src = "img/star-regular.svg";
     }
 }
@@ -119,7 +120,7 @@ createNote.addEventListener("submit", function (e) {
     let editorData = editor.getData();
     let timestamp = Date.now(); //Should timestamp be the "ID" of each note?
     let favorite = "false"; // Give cr8ted note false default value.
-    
+
     printNote(title, editorData, timestamp, favorite);
 
     allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp, favorite);
@@ -134,7 +135,20 @@ document.querySelector('ul.note-list').addEventListener('click', function (evt) 
     let clickedNoteObject = allNotes.find(note => note.timestamp === clickedID)
     editor.setData(clickedNoteObject.editorData);
     document.getElementById("title").value = clickedNoteObject.title;
+    displayActiveNote(clickedID);
 });
+
+function displayActiveNote(clickedID) {
+    //Set active class 
+    let listItems = document.querySelectorAll('.note-list li');
+    for (var i = 0; i < listItems.length; ++i) {
+        if (clickedID == Number(listItems[i].getAttribute('data-id'))) {
+            listItems[i].classList.add('active');
+        } else {
+            listItems[i].classList.remove('active');
+        }
+    }
+}
 
 
 //  --- new note button
@@ -213,60 +227,60 @@ tabs.addEventListener('click', function(e){
 
 // Med querySelectorAll hämtar vi klassen favorit
 document.querySelectorAll(".favorite").forEach(favoriteButton => {
-  favoriteButton.addEventListener("click", function (e) {
-  e.preventDefault();
+    favoriteButton.addEventListener("click", function (e) {
+        e.preventDefault();
 
-    var note = e.target.parentElement; //Parent i det här fallet är den skapade noten
+        var note = e.target.parentElement; //Parent i det här fallet är den skapade noten
 
-  //Här skapas favoritnoten.
-    let title = note.childNodes[0].textContent;
-    let editorData = note.childNodes[2].textContent; //hämta vald notes content
-    let timestamp = note.childNodes[1].textContent; // hämta datumet också
-    let favorite = note.childNodes[3].textContent;
+        //Här skapas favoritnoten.
+        let title = note.childNodes[0].textContent;
+        let editorData = note.childNodes[2].textContent; //hämta vald notes content
+        let timestamp = note.childNodes[1].textContent; // hämta datumet också
+        let favorite = note.childNodes[3].textContent;
 
-  // ATT GÖRA FAVORITER(::TRUE) LÄGGS IN I favoriteNotes arrayen.
-  //testconetent kan inte vara boolean var tvungen att ändra till "string"
-     if(e.target.textContent == "false"){
-        favorite = e.target.textContent = "true";
-        e.target.src = "img/star-solid.svg";
+        // ATT GÖRA FAVORITER(::TRUE) LÄGGS IN I favoriteNotes arrayen.
+        //testconetent kan inte vara boolean var tvungen att ändra till "string"
+        if (e.target.textContent == "false") {
+            favorite = e.target.textContent = "true";
+            e.target.src = "img/star-solid.svg";
 
-        for(var i = 0; i < allNotes.length; i++){
-            //console.log("NUMBER FROM ALLNOTES NOTE: " + JSON.stringify(allNotes[i].timestamp));
-            if(allNotes[i].title == title){
-                allNotes[i].favorite = "true";
-        }
-    }
-        localStorage.setItem("myNotes", JSON.stringify(allNotes));
-        //localStorage.setItem("myFavoriteNotes", JSON.stringify(favoriteNotes));
-        
-        // uppdatera favorites i local
-        // * for loop ittererar genom allNotes
-        // * i foor loopen ska det vara en if-sats
-     }else if(e.target.textContent == "true"){
-        e.target.textContent = "false";
-        e.target.src = "img/star-regular.svg";
-
-        for(var i = 0; i < allNotes.length; i++){
-            //console.log("NUMBER FROM ALLNOTES NOTE: " + JSON.stringify(allNotes[i].timestamp));
-            if(allNotes[i].title == title){
-                allNotes[i].favorite = "false";
+            for (var i = 0; i < allNotes.length; i++) {
+                //console.log("NUMBER FROM ALLNOTES NOTE: " + JSON.stringify(allNotes[i].timestamp));
+                if (allNotes[i].title == title) {
+                    allNotes[i].favorite = "true";
+                }
             }
-        }
+            localStorage.setItem("myNotes", JSON.stringify(allNotes));
+            //localStorage.setItem("myFavoriteNotes", JSON.stringify(favoriteNotes));
+
+            // uppdatera favorites i local
+            // * for loop ittererar genom allNotes
+            // * i foor loopen ska det vara en if-sats
+        } else if (e.target.textContent == "true") {
+            e.target.textContent = "false";
+            e.target.src = "img/star-regular.svg";
+
+            for (var i = 0; i < allNotes.length; i++) {
+                //console.log("NUMBER FROM ALLNOTES NOTE: " + JSON.stringify(allNotes[i].timestamp));
+                if (allNotes[i].title == title) {
+                    allNotes[i].favorite = "false";
+                }
+            }
             localStorage.setItem("myNotes", JSON.stringify(allNotes));
 
-    }
-  
-  });
+        }
+
+    });
 });
 // Favorite Function END:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 // List all favorites function START :::::::::::::::::::::::::::::::::::::::::::::::::::
-document.getElementById("listFavorites").addEventListener("click", function() {
-    
+document.getElementById("listFavorites").addEventListener("click", function () {
+
     //const term = e.target.value.toLowerCase();
     const notes = menuList.getElementsByTagName('li');
     Array.from(notes).forEach(function (note) {
-        const favorite = note.childNodes[3].textContent;        
+        const favorite = note.childNodes[3].textContent;
         if (favorite == "true") {
             note.style.display = 'block';
         } else {
