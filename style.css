@@ -2,7 +2,6 @@
   margin: 0;
 }
 
-
 /* --- RESPONSIVE TWEAKS */
 .flexContainer {
   /* display: flex; */
@@ -14,7 +13,6 @@
   margin-left: 60px;
 }
 
-
 /* --- RESPONSIVE TWEAKS */
 
 .leftTabs {
@@ -24,7 +22,7 @@
   width: 60px;
   height: 100%;
   z-index: 1;
-    position: fixed;
+  position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
@@ -115,33 +113,32 @@
   border-radius: 4px;
   font-size: 16px;
   background-color: white;
-  background-image: url('/img/searchicon.png');
-  background-position: 10px 10px; 
+  background-image: url("/img/searchicon.png");
+  background-position: 10px 10px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 /* --- RESPONSIVE TWEAKS */
-@media only screen and (max-width:900px) {
+@media only screen and (max-width: 900px) {
   /* For mobile phones: */
-  .notesList{
-    width: calc(100% - 10px)!important;    /* display: block; */
-    
+  .notesList {
+    width: calc(100% - 10px) !important; /* display: block; */
   }
-  .note-list > li{
-    height:45px!important;
+  .note-list > li {
+    height: 45px !important;
   }
-  .noteContainer{
-    margin: 5px!important;
-    width: calc(100% - 10px)!important; 
+  .noteContainer {
+    margin: 5px !important;
+    width: calc(100% - 10px) !important;
   }
-  #editor{
-    height: 100%!important;
+  #editor {
+    height: 100% !important;
   }
 }
 /* --- RESPONSIVE TWEAKS */
-.notesList{
+.notesList {
   float: left;
   width: 190px;
 }
@@ -261,7 +258,6 @@
   margin-left: 1rem;
 }
 
-
 /* --- DELETE NOTE BUTTON */
 .noteContainer input[type="button"] {
   background-color: #005392;
@@ -272,7 +268,6 @@
   font-size: 16px;
   margin-top: 1rem;
   margin-left: 1rem;
-
 }
 
 .ck.ck-editor__editable > .ck-placeholder::before {
@@ -295,4 +290,14 @@
   padding: 10px 10px 0px 10px;
   margin-bottom: 0px;
   font-family: "Open Sans", sans-serif;
+}
+
+/*FAVORITE CSS*/
+
+#favorite {
+  height: 20px;
+  width: 20px;
+  display: flex;
+  float: right; /*Fixa så det inte behövs float + margin-top*/
+  margin-top: -50px;
 }
