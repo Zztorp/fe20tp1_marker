@@ -204,24 +204,7 @@ search.addEventListener('keyup', function (e) {
     })
 });
 
-//Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/* <!-- Funkar ännu inte
-const tabs = document.querySelector('.tabs');
-const panels = document.querySelectorAll('.panel');
-tabs.addEventListener('click', function(e){
-    console.log(e.target.tagName)
-    if(e.target.tagName == 'LI'){
-        const targetPanel = document.querySelector(e.target.dataset.target);
-        panels.forEach(function(panel){
-            if(panel ==targetPanel){
-                panel.classList.add('active');
-            } else {
-            panel.classList.remove('active');
-        }
-    })
-}
 
-})--> */
 
 // Favorite Function START:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -289,3 +272,25 @@ document.getElementById("listFavorites").addEventListener("click", function () {
     })
 
 });
+
+ //Swap background:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
+ // Open Modal window
+ document.getElementById('btnSettings').addEventListener('click', function(){
+    document.querySelector('.bg-modal').style.display = 'flex'; 
+});
+
+ // Close Modal window via the exit sign on the left
+document.querySelector('.exit').addEventListener('click', function(){
+   document.querySelector('.bg-modal').style.display = 'none';
+});
+
+ // Close Modal window via the close buttob
+ document.querySelector('.close').addEventListener('click', function(){
+    document.querySelector('.bg-modal').style.display = 'none';
+ });
+
+//Swap background
+function swapStyleSheet(sheet){
+   document.getElementById('pagestyle').setAttribute('href',sheet);
+}
