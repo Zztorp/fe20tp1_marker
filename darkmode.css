@@ -210,7 +210,7 @@ body{
   margin-bottom: 5px;
 }
 
-.noteDate {
+.delete.save {
   font-size: 14px;
   margin-bottom: 5px;
 }
@@ -219,10 +219,7 @@ body{
   font-size: 14px;
 }
 
-.search-notes {
-  background-color: #005392;
-  border: 10px solid pink;
-}
+
 
 #tabbed-content li {
   display: inline-block;

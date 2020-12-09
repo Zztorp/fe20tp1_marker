@@ -7,6 +7,7 @@ let noteEditorData = document.createElement("p");
 let noteDate = document.createElement("p");
 let favoriteImg = document.createElement("img");
 
+
 /* ========== CK Editor ================== */
 BalloonEditor
     .create(document.querySelector('#editor'), {
@@ -272,6 +273,9 @@ document.getElementById("listFavorites").addEventListener("click", function () {
     })
 
 });
+
+
+
 
  //Swap background:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  
