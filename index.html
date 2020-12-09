@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description"content="Quire, notes for life. Start your next novel, bring yours shopping-list, relax your mind ...">
+    <meta name="description"
+        content="Quire, notes for life. Start your next novel, bring yours shopping-list, relax your mind ...">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/balloon/ckeditor.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -39,15 +40,10 @@
 
         <div class='notesList'>
             <!-- add note  -->
-            <ul class="page-tool-box panel active addNote" id="PanelAddNote">
-                <li>
-                    <h1 class="noteTitle">New note</h1>
-                    <p class="noteDate">Tell your story..</p>
-                   <div id="search-notes panel" class='searchNotes'>
-                    <input type="text" name="search" placeholder="Search notes..." />
-                </div>
-                </li>
-            </ul>
+            <div class="page-tool-box" id="PanelAddNote">
+                <h1 class="noteTitle">New note</h1>
+                <p class="noteDate">Tell your story..</p>
+            </div>
 
             <ul class="note-list" id="noteList">
                 <!-- <li>
@@ -57,6 +53,8 @@
                 </li> -->
             </ul>
         </div>
+
+        
 
         <!-- /*  RESPONSIVE TWEAKS */ -->
         <div class="noteContainer">
@@ -72,6 +70,8 @@
             </form>
         </div>
         <!-- search for notes  -->
+
+        <button class="deleteLocalStorage">Delete Local Storage</button>
 
         <!--   Modal section -->
         <div class="bg-modal">
