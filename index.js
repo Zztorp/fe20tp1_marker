@@ -219,7 +219,7 @@ document.querySelector("body > div.tabbed-content > ul > li:nth-child(5)").addEv
 })
 //search for notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-const search = document.forms[0].querySelector('input[name="search"]');
+const search = document.querySelector('input[name="search"]');
 search.addEventListener('keyup', function (e) {
     const term = e.target.value.toLowerCase();
     const notes = menuList.getElementsByTagName('li');
@@ -232,7 +232,6 @@ search.addEventListener('keyup', function (e) {
         }
     })
 });
-
 
 
 // Favorite Function START:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
