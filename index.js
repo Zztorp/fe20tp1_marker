@@ -7,6 +7,8 @@ let noteEditorData = document.createElement("p");
 let noteDate = document.createElement("p");
 let favoriteImg = document.createElement("img");
 
+
+/* ========== CK Editor ================== */
 BalloonEditor
     .create(document.querySelector('#editor'), {
         placeholder: 'Write your note here ...'
@@ -20,21 +22,27 @@ BalloonEditor
 
 var allNotes = [];
 var favoriteNotes = [];
-//console.log(allNotes);
 
-function NoteObject(title, editorData, timestamp) {
+function NoteObject(title, editorData, timestamp, favorite) {
     this.title = title;
     this.editorData = editorData;
     this.timestamp = timestamp;
     this.favorite = favorite;
 };
 
+// -- get active note
+function getActiveNote() {
+    if (document.querySelector('.active')) {
+        return document.querySelector('.active').getAttribute('data-id')
+    }
+}
+
 // ---- print notes in left note-menu
-function printNote(title, editorData, timestamp) {
+function printNote(title, editorData, timestamp, favorite) {
 
     //Create html-elements
-    let menuList = document.querySelector("#noteList");
-    let li = document.createElement("li");
+    menuList = document.querySelector("#noteList");
+    li = document.createElement("li");
     li.setAttribute("data-id", timestamp);
     noteTitle = document.createElement("h3");
     noteEditorData = document.createElement("p");
@@ -46,6 +54,11 @@ function printNote(title, editorData, timestamp) {
     noteDate.textContent = moment().format('ll');
     let strippedString = editorData.replace(/(<([^>]+)>)/gi, "");
     noteEditorData.textContent = strippedString;
+    favoriteImg.setAttribute('type', "submit");
+    favoriteImg.textContent = favorite; //här är true / false
+    favoriteImg.id = "favorite";
+
+    //favorite
     favoriteImg.setAttribute('type', "submit");
     favoriteImg.textContent = favorite; //här är true / false
     favoriteImg.id = "favorite";
@@ -69,7 +82,28 @@ function printNote(title, editorData, timestamp) {
     li.appendChild(noteEditorData);
     li.appendChild(favoriteImg);
     menuList.prepend(li);
+
+    //From regular-star(false) to solid-star(true)
+    if (favorite == "true") {
+        favoriteImg.src = "img/star-solid.svg";
+    } else if (favorite == "false") {
+        favoriteImg.src = "img/star-regular.svg";
+    }
 }
+
+/*
+//Funktion för att komplitera if-sats under denna funktion. 
+//findMyNotes funktionen loopar igenom varje item, om den hittar key med propertyName "myNotes" return true && nu är båda parametrarna i if-satsen godkända och kan gå in.
+function findMyNotes(){
+    for(var i=0; i < localStorage.length; i++){
+        var propertyName = localStorage.key(i);
+        if(propertyName == "myNotes"){
+            return true;
+        }
+    }
+    return false;
+}
+*/
 
 //---- collect array objects from local storage
 function collectFromLocalStorage() {
@@ -77,7 +111,7 @@ function collectFromLocalStorage() {
         allNotes = JSON.parse(localStorage.getItem("myNotes"));
     }
     for (var i = 0; i < allNotes.length; i++) {
-        printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp);
+        printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp, allNotes[i].favorite);
     }
 };
 
@@ -93,18 +127,44 @@ function unprint(title) {
 
 collectFromLocalStorage();
 
+function updateNote() {
+    let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
+    noteObj.editorData = editor.getData();
+    noteObj.title = createNote.querySelector('#title').value;
+    localStorage.setItem("myNotes", JSON.stringify(allNotes));
+}
+
+function updateNote() {
+    let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
+    noteObj.editorData = editor.getData();
+    noteObj.title = createNote.querySelector('#title').value;
+    localStorage.setItem("myNotes", JSON.stringify(allNotes));
+}
+
 //---- add latest note to array and print array in left menu
 const createNote = document.forms.note;
 createNote.addEventListener("submit", function (e) {
-    e.preventDefault();
-    let title = createNote.querySelector('#title').value;
-    let editorData = editor.getData();
-    let timestamp = Date.now();
-    printNote(title, editorData, timestamp);
+    //e.preventDefault(); Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
 
-    allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp);
+    if (getActiveNote()) {
+        let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
+        noteObj.editorData = editor.getData();
+        noteObj.title = createNote.querySelector('#title').value;
+        localStorage.setItem("myNotes", JSON.stringify(allNotes));
+    }
 
-    localStorage.setItem("myNotes", JSON.stringify(allNotes));
+    else {
+
+        let title = createNote.querySelector('#title').value;
+        let editorData = editor.getData();
+        let timestamp = Date.now(); //Should timestamp be the "ID" of each note?
+        let favorite = "false"; // Give cr8ted note false default value.
+
+        allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp, favorite);
+
+        printNote(title, editorData, timestamp, favorite);
+        localStorage.setItem("myNotes", JSON.stringify(allNotes));
+    }
 });
 
 //--- give note ID and display in CK Editor
@@ -114,7 +174,19 @@ document.querySelector('ul.note-list').addEventListener('click', function (evt) 
     let clickedNoteObject = allNotes.find(note => note.timestamp === clickedID)
     editor.setData(clickedNoteObject.editorData);
     document.getElementById("title").value = clickedNoteObject.title;
+    displayActiveNote(clickedID);
 });
+
+function displayActiveNote(clickedID) {
+    let listItems = document.querySelectorAll('.note-list li');
+    for (var i = 0; i < listItems.length; ++i) {
+        if (clickedID == Number(listItems[i].getAttribute('data-id'))) {
+            listItems[i].classList.add('active');
+        } else {
+            listItems[i].classList.remove('active');
+        }
+    }
+}
 
 
 //  --- new note button
@@ -124,7 +196,6 @@ document.querySelector("body > div.tabbed-content > ul > li:nth-child(2)").addEv
 
 
 //  --- delete note button
-
 document.querySelector("#deleteNote").addEventListener("click", function (e) {
     const currentNote = document.forms.note;
     let title = currentNote.querySelector('#title').value;
@@ -139,9 +210,7 @@ document.querySelector("#deleteNote").addEventListener("click", function (e) {
 });
 
 
-
 //  --- print note button
-
 document.querySelector("body > div.tabbed-content > ul > li:nth-child(5)").addEventListener("click", function (e) {
     var divContents = document.querySelector("#editor").innerHTML;
     //  --- ADDS TITLE VALUE TO PRINT 
@@ -173,22 +242,96 @@ search.addEventListener('keyup', function (e) {
     })
 });
 
-//Tabbed Content::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/* <!-- Funkar ännu inte
-const tabs = document.querySelector('.tabs');
-const panels = document.querySelectorAll('.panel');
-tabs.addEventListener('click', function(e){
-    console.log(e.target.tagName)
-    if(e.target.tagName == 'LI'){
-        const targetPanel = document.querySelector(e.target.dataset.target);
-        panels.forEach(function(panel){
-            if(panel ==targetPanel){
-                panel.classList.add('active');
-            } else {
-            panel.classList.remove('active');
+
+
+// Favorite Function START:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+// Med querySelectorAll hämtar vi klassen favorit
+document.querySelectorAll(".favorite").forEach(favoriteButton => {
+    favoriteButton.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        var note = e.target.parentElement; //Parent i det här fallet är den skapade noten
+
+        //Här skapas favoritnoten.
+        let title = note.childNodes[0].textContent;
+        let editorData = note.childNodes[2].textContent; //hämta vald notes content
+        let timestamp = note.childNodes[1].textContent; // hämta datumet också
+        let favorite = note.childNodes[3].textContent;
+
+        // ATT GÖRA FAVORITER(::TRUE) LÄGGS IN I favoriteNotes arrayen.
+        //testconetent kan inte vara boolean var tvungen att ändra till "string"
+        if (e.target.textContent == "false") {
+            favorite = e.target.textContent = "true";
+            e.target.src = "img/star-solid.svg";
+
+            for (var i = 0; i < allNotes.length; i++) {
+                //console.log("NUMBER FROM ALLNOTES NOTE: " + JSON.stringify(allNotes[i].timestamp));
+                if (allNotes[i].title == title) {
+                    allNotes[i].favorite = "true";
+                }
+            }
+            localStorage.setItem("myNotes", JSON.stringify(allNotes));
+            //localStorage.setItem("myFavoriteNotes", JSON.stringify(favoriteNotes));
+
+            // uppdatera favorites i local
+            // * for loop ittererar genom allNotes
+            // * i foor loopen ska det vara en if-sats
+        } else if (e.target.textContent == "true") {
+            e.target.textContent = "false";
+            e.target.src = "img/star-regular.svg";
+
+            for (var i = 0; i < allNotes.length; i++) {
+                //console.log("NUMBER FROM ALLNOTES NOTE: " + JSON.stringify(allNotes[i].timestamp));
+                if (allNotes[i].title == title) {
+                    allNotes[i].favorite = "false";
+                }
+            }
+            localStorage.setItem("myNotes", JSON.stringify(allNotes));
+
+        }
+
+    });
+});
+// Favorite Function END:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+// List all favorites function START :::::::::::::::::::::::::::::::::::::::::::::::::::
+document.getElementById("listFavorites").addEventListener("click", function () {
+
+    //const term = e.target.value.toLowerCase();
+    const notes = menuList.getElementsByTagName('li');
+    Array.from(notes).forEach(function (note) {
+        const favorite = note.childNodes[3].textContent;
+        if (favorite == "true") {
+            note.style.display = 'block';
+        } else {
+            note.style.display = 'none';
         }
     })
+
+});
+
+
+
+
+//Swap background:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+// Open Modal window
+document.getElementById('btnSettings').addEventListener('click', function () {
+    document.querySelector('.bg-modal').style.display = 'flex';
+});
+
+// Close Modal window via the exit sign on the left
+document.querySelector('.exit').addEventListener('click', function () {
+    document.querySelector('.bg-modal').style.display = 'none';
+});
+
+// Close Modal window via the close buttob
+document.querySelector('.close').addEventListener('click', function () {
+    document.querySelector('.bg-modal').style.display = 'none';
+});
+
+//Swap background
+function swapStyleSheet(sheet) {
+    document.getElementById('pagestyle').setAttribute('href', sheet);
 }
-
-})--> */
-
