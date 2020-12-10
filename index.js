@@ -31,6 +31,13 @@ function NoteObject(title, editorData, timestamp, favorite) {
     this.favorite = favorite;
 };
 
+// -- get active note
+function getActiveNote() {
+    if (document.querySelector('.active')) {
+        return document.querySelector('.active').getAttribute('data-id')
+    }
+}
+
 // ---- print notes in left note-menu
 function printNote(title, editorData, timestamp, favorite) {
 
@@ -89,8 +96,6 @@ function findMyNotes(){
 }
 */
 
-
-
 //---- collect array objects from local storage
 function collectFromLocalStorage() {
     if (localStorage.length !== 0) {
@@ -113,20 +118,44 @@ function unprint(title) {
 
 collectFromLocalStorage();
 
+function updateNote() {
+    let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
+    noteObj.editorData = editor.getData();
+    noteObj.title = createNote.querySelector('#title').value;
+    localStorage.setItem("myNotes", JSON.stringify(allNotes));
+}
+
+function updateNote() {
+    let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
+    noteObj.editorData = editor.getData();
+    noteObj.title = createNote.querySelector('#title').value;
+    localStorage.setItem("myNotes", JSON.stringify(allNotes));
+}
+
 //---- add latest note to array and print array in left menu
 const createNote = document.forms.note;
 createNote.addEventListener("submit", function (e) {
     //e.preventDefault(); Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
-    let title = createNote.querySelector('#title').value;
-    let editorData = editor.getData();
-    let timestamp = Date.now(); //Should timestamp be the "ID" of each note?
-    let favorite = "false"; // Give cr8ted note false default value.
 
-    printNote(title, editorData, timestamp, favorite);
+    if (getActiveNote()) {
+        let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
+        noteObj.editorData = editor.getData();
+        noteObj.title = createNote.querySelector('#title').value;
+        localStorage.setItem("myNotes", JSON.stringify(allNotes));
+    }
 
-    allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp, favorite);
+    else {
 
-    localStorage.setItem("myNotes", JSON.stringify(allNotes));
+        let title = createNote.querySelector('#title').value;
+        let editorData = editor.getData();
+        let timestamp = Date.now(); //Should timestamp be the "ID" of each note?
+        let favorite = "false"; // Give cr8ted note false default value.
+
+        allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp, favorite);
+
+        printNote(title, editorData, timestamp, favorite);
+        localStorage.setItem("myNotes", JSON.stringify(allNotes));
+    }
 });
 
 //--- give note ID and display in CK Editor
@@ -140,7 +169,6 @@ document.querySelector('ul.note-list').addEventListener('click', function (evt) 
 });
 
 function displayActiveNote(clickedID) {
-    //Set active class 
     let listItems = document.querySelectorAll('.note-list li');
     for (var i = 0; i < listItems.length; ++i) {
         if (clickedID == Number(listItems[i].getAttribute('data-id'))) {
@@ -277,24 +305,24 @@ document.getElementById("listFavorites").addEventListener("click", function () {
 
 
 
- //Swap background:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
- 
- // Open Modal window
- document.getElementById('btnSettings').addEventListener('click', function(){
-    document.querySelector('.bg-modal').style.display = 'flex'; 
+//Swap background:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+// Open Modal window
+document.getElementById('btnSettings').addEventListener('click', function () {
+    document.querySelector('.bg-modal').style.display = 'flex';
 });
 
- // Close Modal window via the exit sign on the left
-document.querySelector('.exit').addEventListener('click', function(){
-   document.querySelector('.bg-modal').style.display = 'none';
-});
-
- // Close Modal window via the close buttob
- document.querySelector('.close').addEventListener('click', function(){
+// Close Modal window via the exit sign on the left
+document.querySelector('.exit').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
- });
+});
+
+// Close Modal window via the close buttob
+document.querySelector('.close').addEventListener('click', function () {
+    document.querySelector('.bg-modal').style.display = 'none';
+});
 
 //Swap background
-function swapStyleSheet(sheet){
-   document.getElementById('pagestyle').setAttribute('href',sheet);
+function swapStyleSheet(sheet) {
+    document.getElementById('pagestyle').setAttribute('href', sheet);
 }
