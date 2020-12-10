@@ -1,4 +1,3 @@
-
 let editor;
 let menuList = document.querySelector("#noteList");
 
@@ -168,6 +167,4 @@ tabs.addEventListener('click', function(e){
         }
     })
 }
-
 })--> */
-
