@@ -21,7 +21,8 @@ BalloonEditor
     });
 
 var allNotes = [];
-//var favoriteNotes = [];
+var favoriteNotes = [];
+
 
 function NoteObject(title, editorData, timestamp, favorite) {
     this.title = title;
@@ -54,9 +55,6 @@ function printNote(title, editorData, timestamp, favorite) {
     noteDate.textContent = moment().format('ll');
     let strippedString = editorData.replace(/(<([^>]+)>)/gi, "");
     noteEditorData.textContent = strippedString;
-    favoriteImg.setAttribute('type', "submit");
-    favoriteImg.textContent = favorite; //här är true / false
-    favoriteImg.id = "favorite";
 
     //favorite
     favoriteImg.setAttribute('type', "submit");
@@ -68,13 +66,6 @@ function printNote(title, editorData, timestamp, favorite) {
     noteDate.classList.add('noteDate');
     noteEditorData.classList.add('noteEditorData');
     favoriteImg.classList.add('favorite');
-
-    //Bild skiftar beroende på om den är sann eller falsk.
-    if(favorite == "true"){
-        favoriteImg.src = "img/star-solid.svg";
-    }else if(favorite == "false"){
-        favoriteImg.src = "img/star-regular.svg";
-    }
 
     //Append to DOM
     li.appendChild(noteTitle);
@@ -91,7 +82,7 @@ function printNote(title, editorData, timestamp, favorite) {
     }
 }
 
-
+/*
 //Funktion för att komplitera if-sats under denna funktion. 
 //findMyNotes funktionen loopar igenom varje item, om den hittar key med propertyName "myNotes" return true && nu är båda parametrarna i if-satsen godkända och kan gå in.
 function findMyNotes(){
@@ -103,7 +94,7 @@ function findMyNotes(){
     }
     return false;
 }
-
+*/
 
 //---- collect array objects from local storage
 function collectFromLocalStorage() {
@@ -125,7 +116,7 @@ function unprint(title) {
     }
 }
 
-//collectFromLocalStorage();
+collectFromLocalStorage();
 
 function updateNote() {
     let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
@@ -144,7 +135,7 @@ function updateNote() {
 //---- add latest note to array and print array in left menu
 const createNote = document.forms.note;
 createNote.addEventListener("submit", function (e) {
-    e.preventDefault(); //Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
+    //e.preventDefault(); Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
 
     if (getActiveNote()) {
         let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
