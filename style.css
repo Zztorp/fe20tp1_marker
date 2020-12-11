@@ -356,3 +356,106 @@ h2{
 .modal-close-btn{
   padding-top: 20px;
 }
+
+/*-- INTRO MODAL WINDOW*/
+.intro-modal {
+    background-color: black;
+    width: 80%;
+    height: 90%;
+    border-radius: 5px;
+    position: absolute;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Libre Baskerville', serif;
+    z-index: 1;
+    margin: auto;
+    opacity: 0.8;
+  /*display: none; This will hide all the child elements */
+}
+
+.intro-modal h1 {  
+  font-family: 'Libre Baskerville', serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 250px;
+  color: white;
+  margin-top: 8%;
+  margin-bottom: 10px;
+}
+
+.intro-modal p { 
+  font-family: 'Libre Baskerville', serif;
+  font-style: normal;
+  font-size: 18px; 
+  width: 50%;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.exitintro {
+  padding: 10px 10px;
+  font-size: 42px;
+  transform: rotate(45deg);
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 14px;
+}
+
+/* --- RESPONSIVE TWEAKS */
+@media only screen and (max-width: 900px) {
+/*tablet*/
+   .intro-modal h1 {   
+      font-style: normal;
+      font-weight: bold;
+      font-size: 340px;
+      color: white;
+      margin-top: 7%;
+    }
+
+    .intro-modal span {
+      display: none;
+    }
+
+    .intro-modal p { 
+      display: flex;
+      width: 60%;  
+      font-style: normal;
+      font-size: 18px;
+      color: white;
+      text-align: center;
+      padding-top: 10px;
+    } 
+  }
+ 
+@media only screen and (max-width: 600px) {
+  /*mobile*/
+
+    .intro-modal h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 100px;
+    transform: rotate(-90deg);
+  }
+
+  .intro-modal span {
+      display: inline;
+  }
+
+  .intro-modal p { 
+    font-style: normal;
+    font-size: 14px; 
+    width: 50%;
+    color: white;
+    text-align: center;
+    padding-top: 90px;
+  }
+}
