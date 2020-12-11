@@ -202,7 +202,7 @@ document.querySelector("#deleteNote").addEventListener("click", function (e) {
 
 
 //  --- print note button
-document.querySelector("body > div.tabbed-content > ul > li:nth-child(5)").addEventListener("click", function (e) {
+document.querySelector("body > div.tabbed-content > ul > li:nth-child(4)").addEventListener("click", function (e) {
     var divContents = document.querySelector("#editor").innerHTML;
     //  --- ADDS TITLE VALUE TO PRINT 
     var title = document.querySelector("#title").value;
@@ -325,3 +325,15 @@ document.querySelector('.close').addEventListener('click', function () {
 function swapStyleSheet(sheet) {
     document.getElementById('pagestyle').setAttribute('href', sheet);
 }
+
+//----- Intro popup ----
+
+// Open intro-modal window
+document.querySelector('ul.leftTabs > li:first-child').addEventListener('click', function () {
+    document.querySelector('.intro-popup').style.display = 'flex';
+});
+
+// Close intro-modal window via the exit crossmark
+document.querySelector('.exitintro').addEventListener('click', function () {
+    document.querySelector('.intro-popup').style.display = 'none';
+});
