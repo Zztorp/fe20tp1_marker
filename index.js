@@ -316,12 +316,22 @@ document.querySelector('.exit').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
 
-// Close Modal window via the close buttob
-document.querySelector('.close').addEventListener('click', function () {
+
+// Close Modal windowv via the  cancel btn 
+document.querySelector('.cancel').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
 
-//Swap background
-function swapStyleSheet(sheet) {
-    document.getElementById('pagestyle').setAttribute('href', sheet);
-}
+// Close Modal windowv via the  save btn 
+document.querySelector('.save').addEventListener('click', function () {
+    document.querySelector('.bg-modal').style.display = 'none';
+});
+
+
+const sunMoonContainer = document.querySelector('.sun-moon-container')
+
+document.querySelector('.theme-toggle-button').addEventListener('click', function () {
+  document.body.classList.toggle('modal-content-dark')
+  const currentRotation = parseInt(getComputedStyle(sunMoonContainer).getPropertyValue('--rotation'))
+  sunMoonContainer.style.setProperty('--rotation', currentRotation + 180)
+})
