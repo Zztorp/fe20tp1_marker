@@ -316,8 +316,14 @@ document.querySelector('.exit').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
 
-// Close Modal window via the close buttob
-document.querySelector('.close').addEventListener('click', function () {
+
+// Close Modal windowv via the  cancel btn 
+document.querySelector('.cancel').addEventListener('click', function () {
+    document.querySelector('.bg-modal').style.display = 'none';
+});
+
+// Close Modal windowv via the  save btn 
+document.querySelector('.save').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
 
@@ -326,14 +332,23 @@ function swapStyleSheet(sheet) {
     document.getElementById('pagestyle').setAttribute('href', sheet);
 }
 
+const sunMoonContainer = document.querySelector('.sun-moon-container')
+
+document.querySelector('.theme-toggle-button').addEventListener('click', function () {
+    document.body.classList.toggle('modal-content-dark')
+    const currentRotation = parseInt(getComputedStyle(sunMoonContainer).getPropertyValue('--rotation'))
+    sunMoonContainer.style.setProperty('--rotation', currentRotation + 180)
+});
+
 //----- Intro popup ----
 
-// Open intro-modal window
+//---- Open intro-modal window
 document.querySelector('ul.leftTabs > li:first-child').addEventListener('click', function () {
     document.querySelector('.intro-popup').style.display = 'flex';
 });
 
-// Close intro-modal window via the exit crossmark
+//----Close intro-modal window via the exit crossmark
 document.querySelector('.exitintro').addEventListener('click', function () {
     document.querySelector('.intro-popup').style.display = 'none';
 });
+
