@@ -223,6 +223,9 @@ body {
     box-shadow: 3px 3px 5px #ccc;
     padding: 15px;
     margin-top: 70px;
+    transition: background-color var(--transition-delay);
+    background-color: var(--background-color);
+    color: var(--text-color);
     } 
 
   .flexContainer {
@@ -267,6 +270,9 @@ body {
   padding-left: 0px;
   box-shadow: 3px 3px 5px #ccc;
   padding: 15px;
+  transition: background-color var(--transition-delay);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .page-tool-box li {
@@ -286,6 +292,9 @@ body {
   font-family: "Open Sans", sans-serif;
   padding-left: 0px;
   box-shadow: 3px 3px 5px #ccc;
+  transition: background-color var(--transition-delay);
+  /*background-color: var(--background-color);*/
+  color: var(--text-color);
 }
 
 .note-list > li {
@@ -304,7 +313,7 @@ body {
   color: black;
   text-overflow: ellipsis;
    }
-}
+
 
 .active, .note-list > li:hover {
   background-color: #d7ecf7;
@@ -438,7 +447,7 @@ body {
 
 #editor {
   flex: 1 1 auto;
-  padding-top: 50px;
+  padding-top: 50px;-
   height: 600px;
 }
 
@@ -451,9 +460,14 @@ body {
   padding: 10px 10px 0px 10px;
   margin-bottom: 0px;
   font-family: "Open Sans", sans-serif;
+  transition: background-color var(--transition-delay);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-
+#title::placeholder {
+  color: rgb(169,169,169);
+}
 
 /*FAVORITE CSS*/
 
@@ -500,6 +514,23 @@ body {
   --accent-color: #D0D066;
   --background-color: rgb(98, 96, 96);
   --text-color:rgb(36, 59, 83);
+}
+
+.setTitle-dark  {
+  --background-color: rgb(98, 96, 96);
+  --text-color:rgb(230, 227, 227);
+}
+
+.note-list-dark {
+  --background-color: rgb(241, 238, 238);
+  --text-color: rgb(31, 50, 71);
+  box-shadow: 3px 3px 5px rgb(63, 61, 61);
+}
+
+.toolbox-dark {
+  --background-color: rgb(254, 251, 251);
+  --text-color: rgb(26, 43, 61);
+  box-shadow: 3px 3px 5px rgb(63, 61, 61);
 }
 
 
