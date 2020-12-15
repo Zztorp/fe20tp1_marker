@@ -334,11 +334,14 @@ function swapStyleSheet(sheet) {
     document.getElementById('pagestyle').setAttribute('href', sheet);
 }
 
-const sunMoonContainer = document.querySelector('.sun-moon-container')
+const sunMoonContainer = document.querySelector('.sun-moon-container');
 
 document.querySelector('.theme-toggle-button').addEventListener('click', function () {
-    document.body.classList.toggle('modal-content-dark')
-  
+    document.body.classList.toggle('modal-content-dark');
+    document.getElementById('title').classList.toggle('setTitle-dark');
+    document.getElementById('noteList').classList.toggle('note-list-dark');
+    document.getElementById('PanelAddNote').classList.toggle('toolbox-dark');
+
     const currentRotation = parseInt(getComputedStyle(sunMoonContainer).getPropertyValue('--rotation'))
     sunMoonContainer.style.setProperty('--rotation', currentRotation + 180)
 });

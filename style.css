@@ -214,6 +214,9 @@ body {
     box-shadow: 3px 3px 5px #ccc;
     padding: 15px;
     margin-top: 70px;
+    transition: background-color var(--transition-delay);
+    background-color: var(--background-color);
+    color: var(--text-color);
     } 
 
   .flexContainer {
@@ -258,6 +261,9 @@ body {
   padding-left: 0px;
   box-shadow: 3px 3px 5px #ccc;
   padding: 15px;
+  transition: background-color var(--transition-delay);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .page-tool-box li {
@@ -277,6 +283,9 @@ body {
   font-family: "Open Sans", sans-serif;
   padding-left: 0px;
   box-shadow: 3px 3px 5px #ccc;
+  transition: background-color var(--transition-delay);
+  /*background-color: var(--background-color);*/
+  color: var(--text-color);
 }
 
 .note-list > li {
@@ -437,12 +446,15 @@ body {
   padding: 10px 10px 0px 10px;
   margin-bottom: 0px;
   font-family: "Open Sans", sans-serif;
+  transition: background-color var(--transition-delay);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-
-#title-dark{
-  color: red;
+#title::placeholder {
+  color: rgb(169,169,169);
 }
+
 /*FAVORITE CSS*/
 
 #favorite {
@@ -465,30 +477,49 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);display: flex;
- /*  justify-content: center;
-  align-items: center; */
+  transform: translate(-50%, -50%);
+  /*display: flex;
+  align-content: center;
+  align-items: center;*/
   margin: auto 0;
-  display:none;  
+  display: none;  
 }
 
 .modal-content{
-  display: flex;
+  /*display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center;*/
   height: 250px;
   width: 480px;
-  margin: 0;
+  margin: 40px;
+  padding: 50px;
   overflow: hidden;
- 
 }
 
 .modal-content-dark  {
   --accent-color: #D0D066;
   --background-color: rgb(98, 96, 96);
-  --text-color:rgb(36, 59, 83);
+  /*--text-color:rgb(36, 59, 83);*/
+  --text-color:rgb(230, 227, 227);
   height: 100vh
+}
+
+.setTitle-dark  {
+  --background-color: rgb(98, 96, 96);
+  --text-color:rgb(230, 227, 227);
+}
+
+.note-list-dark {
+  --background-color: rgb(241, 238, 238);
+  --text-color: rgb(31, 50, 71);
+  box-shadow: 3px 3px 5px rgb(63, 61, 61);
+}
+
+.toolbox-dark {
+  --background-color: rgb(254, 251, 251);
+  --text-color: rgb(26, 43, 61);
+  box-shadow: 3px 3px 5px rgb(63, 61, 61);
 }
 
 
@@ -497,16 +528,21 @@ body {
 .theme-toggle-button {
   background-color: var(--accent-color);
   color: var(--button-text-color);
-   display: flex;
-  justify-content: center; 
-  align-items: center;  */
+  /*display: flex;
+  align-content: center; 
+  align-items: center;*/
+  position: absolute;
+  top: 60%;
+  left: 35%;
+  transform: translate(-60%, -35%);
   cursor: pointer;
-  padding: .5em 1em; */
+  padding: .5em 1em; 
   border-radius: .3em;
   border: none;
   outline: none;
   transition: var(--transition-delay);
   transform: scale(1);
+
 }
 
 /* .theme-toggle-button .icon {
