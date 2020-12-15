@@ -102,6 +102,15 @@ body {
   mask-size: cover;
 }
 
+.leftTabs li:hover{
+	padding: 5px;
+  display: inline-block;
+  transform: scale(1);
+  transition: var(--transition-delay);
+
+}
+
+
 
 /* --- _ SEARCH BUTTON STYLING */
 .searchNotes > input {
@@ -294,6 +303,7 @@ body {
   background-color: white;
   color: black;
   text-overflow: ellipsis;
+   }
 }
 
 .active, .note-list > li:hover {
@@ -383,6 +393,8 @@ body {
 }
 
 /* --- RESPONSIVE TWEAKS --- */
+
+
 
 @media only screen and (max-width: 900px) {
 .noteContainer input[type="submit"] {
@@ -603,6 +615,7 @@ body {
 	}
 
 .cancel{
+  border: 0.5px solid black;
   border: none;
 	padding: 5px;
   display: inline-block;
@@ -618,8 +631,12 @@ body {
   display: inline-block;
   transform: scale(1.1);
  }
+
+
+
+
  
- @media only screen and (max-width: 900px){
+/ @media only screen and (max-width: 900px){
    
   .bg-modal{
     width: 250px;
@@ -632,27 +649,24 @@ body {
   .modal-content{
     height: 120px;
     width: 230px;
-  
  }
 
-
-
+ .modal-title{
+  display: none;
+  
+ }
+ .cancel-save-container,
  .sun-moon-container{
    display: none;
  }
 
-/* .swap-container{
-  width: 50px;
-  height: 20px;
- border: 2px solid red;
-} */
-
 .theme-toggle-button{
   width: 100px;
   height: 25px;
-  padding-top: 20px;
+
+ 
   }
- } 
+ }  
 
 
 /*--- INTRO POPUP WINDOW --- */
