@@ -135,7 +135,7 @@ function updateNote() {
 //---- add latest note to array and print array in left menu
 const createNote = document.forms.note;
 createNote.addEventListener("submit", function (e) {
-    //e.preventDefault(); Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
+    e.preventDefault(); /* Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas */
 
     if (getActiveNote()) {
         let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
@@ -328,6 +328,7 @@ document.querySelector('.cancel').addEventListener('click', function () {
 document.querySelector('.save').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
+
 
 //-----Night mode ----
 
