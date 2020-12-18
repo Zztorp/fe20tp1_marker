@@ -338,18 +338,26 @@ document.querySelector('.theme-toggle-button').addEventListener('click', functio
     document.getElementById('noteList').classList.toggle('note-list-dark');
     document.getElementById('PanelAddNote').classList.toggle('toolbox-dark');
 
-    
+
 });
 
 //----- Intro popup ----
 
-//---- Open intro-modal window
+// ---- Open intro-modal window
 document.querySelector('ul.leftTabs > li:first-child').addEventListener('click', function () {
     document.querySelector('.intro-popup').style.display = 'flex';
 });
+
+
+//  -- POPUP on first visit
+console.log(localStorage.getItem('modalopened'))
+if (!localStorage.getItem('modalopened')) {
+    document.querySelector('.intro-popup').style.display = 'flex';
+    localStorage.setItem("modalopened", true);
+}
+
 
 //----Close intro-modal window via the exit crossmark
 document.querySelector('.exitintro').addEventListener('click', function () {
     document.querySelector('.intro-popup').style.display = 'none';
 });
-
