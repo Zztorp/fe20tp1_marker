@@ -98,11 +98,11 @@ function findMyNotes(){
 
 //---- collect array objects from local storage
 function collectFromLocalStorage() {
-    if (localStorage.length !== 0) {
+    if (localStorage.getItem("myNotes") !== null) {
         allNotes = JSON.parse(localStorage.getItem("myNotes"));
-    }
-    for (var i = 0; i < allNotes.length; i++) {
-        printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp, allNotes[i].favorite);
+        for (var i = 0; i < allNotes.length; i++) {
+            printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp, allNotes[i].favorite);
+        }
     }
 };
 
@@ -125,17 +125,10 @@ function updateNote() {
     localStorage.setItem("myNotes", JSON.stringify(allNotes));
 }
 
-function updateNote() {
-    let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
-    noteObj.editorData = editor.getData();
-    noteObj.title = createNote.querySelector('#title').value;
-    localStorage.setItem("myNotes", JSON.stringify(allNotes));
-}
-
 //---- add latest note to array and print array in left menu
 const createNote = document.forms.note;
 createNote.addEventListener("submit", function (e) {
-    //e.preventDefault(); Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
+    // e.preventDefault(); Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
 
     if (getActiveNote()) {
         let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
@@ -329,7 +322,7 @@ document.querySelector('.save').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
 
-//----- Dark mode ---
+//----- Dark mode save to lovalstorage ---
 
 let darkMode = localStorage.getItem('darkMode');
 const darkModeToggleBtn = document.querySelector('.theme-toggle-button');
@@ -367,7 +360,7 @@ darkModeToggleBtn.addEventListener('click', function () {
     }
 });
 
-
+//----- Dark mode previous ---
 /*document.querySelector('.theme-toggle-button').addEventListener('click', function () {
     document.body.classList.toggle('modal-content-dark');
     document.getElementById('title').classList.toggle('setTitle-dark');

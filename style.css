@@ -104,20 +104,19 @@ body {
 .leftTabs li:hover {
 	padding: 5px;
   display: inline-block;
-  background-color: lightgray;
+  background-color: #d3d2d2;
   transform: none;
   /*transition: var(--transition-delay);*/
 }
 
 .leftTabs li:active {
-  background-color: lightgray;
+  background-color: #d3d2d2;
 }
 
 .leftTabs li:focus {
   border: none;
-  background-color: lightgray;
+  background-color: #d3d2d2;
 }
-
 
 .search {
   width: 158px;
@@ -206,7 +205,6 @@ body {
     overflow-x: hidden;
     list-style-type: none;
     background-color: #005392;
-    border: 1px solid black;
     border: none;
     padding-left: 0px;
   }
@@ -268,7 +266,6 @@ body {
   }
 
 }
-
 
 /* ---END OF  RESPONSIVE TWEAKS */
 
@@ -473,7 +470,6 @@ body {
   cursor: pointer;
   border-radius: 5px;
   position: unset !important;
-  align-content: center;
   }
 }
 
@@ -489,7 +485,6 @@ body {
   margin-left: 1rem;
   cursor: pointer;
   border-radius: 5px;
-  position: absolute;
   position: unset !important;
  
   }
@@ -583,18 +578,16 @@ body {
 }
 
 .note-list-dark {
-  --background-color: rgb(148, 148, 148);
+  --background-color: rgb(207, 204, 204);
   --text-color: rgb(31, 50, 71);
   box-shadow: 3px 3px 5px rgb(63, 61, 61);
 }
 
 .toolbox-dark {
-  --background-color: rgb(250, 250, 250);
+  --background-color: rgb(239, 242, 245);
   --text-color: rgb(26, 43, 61);
   box-shadow: 3px 3px 5px rgb(63, 61, 61);
 }
-
-
 
 
 .theme-toggle-button {
