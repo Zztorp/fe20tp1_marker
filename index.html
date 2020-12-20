@@ -24,11 +24,11 @@
     <!-- The blue tool box -->
     <div class="tabbed-content">
         <ul class="leftTabs">
-            <li>Q</li>
-            <li>Add note</li>
-            <li id="listFavorites">Favourite</li>
-            <li>Print</li>
-            <li id="btnSettings">Settings</li>
+            <li tabindex="1">Q</li>
+            <li tabindex="2"></li>
+            <li id="listFavorites" tabindex="3"></li>
+            <li tabindex="4"></li>
+            <li id="btnSettings" tabindex="5"></li>
             <!-- <li>Statistics</li>-->
         </ul>
 
@@ -51,12 +51,12 @@
             <div class="page-tool-box" id="PanelAddNote">
                 <h1 class="noteTitle">Your notes</h1>
                 <!--<p class="noteDate">Tell your story..</p>-->
-                <input type="text" class="search" name="search" placeholder="Search notes..." />
+                <input type="text" class="search" name="search" tabindex="6" placeholder="Search notes..." />
                 <!--     </div>
             <div id="search-notes panel" class='searchNotes'>
                  -->
             </div>
-            <ul class="note-list" id="noteList">
+            <ul class="note-list" id="noteList" tabindex="7">
 
                 <!-- <li>
                     <p class="noteTitle">test</p>

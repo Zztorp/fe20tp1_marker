@@ -54,7 +54,6 @@ body {
   height: 40px;
   margin: 10px;
   display: block;
-  color: white;
   background-color: white;
 }
 
@@ -62,16 +61,17 @@ body {
   text-align: center;
   height: 60px;
   width: 100%;
-  font-size: 40px;
   margin-top: 0px;
   padding-top: 10px;
   color: white;
   background-color: black;
   font-family: 'Libre Baskerville', serif;
+  font-size: 40px;
 }
 
 .leftTabs li:nth-child(2) {
   margin-top: 50px;
+  height: 50px;
   -webkit-mask: url(/img/add.svg) no-repeat 50% 50%;
   mask: url(/img/add.svg) no-repeat 50% 50%;
   -webkit-mask-size: cover;
@@ -102,16 +102,25 @@ body {
   mask-size: cover;
 }
 
-.leftTabs li:hover{
+.leftTabs li:hover {
 	padding: 5px;
   display: inline-block;
+  background-color: lightgray;
   transform: scale(1);
-  transition: var(--transition-delay);
-
+  /*transition: var(--transition-delay);*/
 }
 
+.leftTabs li:active {
+  background-color: lightgray;
+}
+
+.leftTabs li:focus {
+  border: 1px solid black;
+  background-color: lightgray;
+}
+
+
 .search {
-  
   width: 158px;
   height: 30px;
   border: 0.5px solid black; 
