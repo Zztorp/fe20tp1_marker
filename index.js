@@ -54,7 +54,7 @@ function printNote(title, editorData, timestamp, favorite) {
     noteTitle.textContent = title;
     noteDate.textContent = moment().format('ll');
     let strippedString = editorData.replace(/(<([^>]+)>)/gi, "");
-    noteEditorData.textContent = strippedString;
+    noteEditorData.textContent = strippedString.slice(0, 35) + (" ...");
 
     //favorite
     favoriteImg.setAttribute('type', "submit");
@@ -329,16 +329,51 @@ document.querySelector('.save').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
 
-//-----Night mode ----
+//----- Dark mode ---
 
-document.querySelector('.theme-toggle-button').addEventListener('click', function () {
+let darkMode = localStorage.getItem('darkMode');
+const darkModeToggleBtn = document.querySelector('.theme-toggle-button');
+
+const enableDarkMode = () => {
     document.body.classList.toggle('modal-content-dark');
     document.getElementById('title').classList.toggle('setTitle-dark');
     document.getElementById('noteList').classList.toggle('note-list-dark');
     document.getElementById('PanelAddNote').classList.toggle('toolbox-dark');
 
+    localStorage.setItem('darkMode', 'enabled');
+};
 
+const disableDarkMode = () => {
+    document.body.classList.remove('modal-content-dark');
+    document.getElementById('title').classList.remove('setTitle-dark');
+    document.getElementById('noteList').classList.remove('note-list-dark');
+    document.getElementById('PanelAddNote').classList.remove('toolbox-dark');
+
+    localStorage.setItem('darkMode', null);
+};
+
+if (darkMode === "enabled") {
+    enableDarkMode();
+}
+
+darkModeToggleBtn.addEventListener('click', function () {
+    darkMode = localStorage.getItem('darkMode');
+    if (darkMode !== "enabled") {
+        enableDarkMode();
+        console.log(darkMode);
+    } else {
+        disableDarkMode();
+        console.log(darkMode);
+    }
 });
+
+
+/*document.querySelector('.theme-toggle-button').addEventListener('click', function () {
+    document.body.classList.toggle('modal-content-dark');
+    document.getElementById('title').classList.toggle('setTitle-dark');
+    document.getElementById('noteList').classList.toggle('note-list-dark');
+    document.getElementById('PanelAddNote').classList.toggle('toolbox-dark');
+});*/
 
 //----- Intro popup ----
 
