@@ -355,7 +355,6 @@ if (!localStorage.getItem('modalopened')) {
     localStorage.setItem("modalopened", true);
 }
 
-
 //----Close intro-modal window via the exit crossmark
 document.querySelector('.exitintro').addEventListener('click', function () {
     document.querySelector('.intro-popup').style.display = 'none';

@@ -500,9 +500,13 @@ body {
 
 #editor {
   flex: 1 1 auto;
-  padding-top: 50px;
+  padding-top: 25px;
   height: 600px;
   max-width: 70%;
+  border: none;
+  outline: none;
+  box-shadow: none;
+
 }
 
 #title {
@@ -510,6 +514,7 @@ body {
   width: 90%;
   border: none;
   outline: none;
+  margin-top: 41px;
   font-size: 20px;
   padding: 10px 10px 0px 10px;
   margin-bottom: 0px;
