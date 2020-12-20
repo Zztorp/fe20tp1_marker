@@ -117,8 +117,10 @@ body {
   border: 0.5px solid black; 
   border-radius: 3px; 
   background-color: white;
-  /* background-image: url("/img/searchicon.png"); */
+  background-image: url(/img/searchicon.png);
   background-repeat: no-repeat;
+  background-position: 132px;
+  background-size: 23px;
   margin-left: 5px;
   }
 
