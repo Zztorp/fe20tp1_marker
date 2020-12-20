@@ -330,7 +330,7 @@ document.querySelector('.save').addEventListener('click', function () {
 });
 
 
-//-----Night mode ----
+//-----Night mode ---- WORKINGS
 
 document.querySelector('.theme-toggle-button').addEventListener('click', function () {
     document.body.classList.toggle('modal-content-dark');
@@ -338,8 +338,12 @@ document.querySelector('.theme-toggle-button').addEventListener('click', functio
     document.getElementById('noteList').classList.toggle('note-list-dark');
     document.getElementById('PanelAddNote').classList.toggle('toolbox-dark');
 
+});  
 
-});
+
+
+
+
 
 //----- Intro popup ----
 

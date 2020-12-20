@@ -128,15 +128,13 @@ body {
   border-radius: 4px;
   font-size: 16px;
   background-color: white;
-
- 
 }
 
 /* --- RESPONSIVE TWEAKS */
 @media only screen and (max-width: 900px) {
   /* For mobile phones: */
   .notesList {
-    width: calc(100% - 10px) !important; /* display: block; */
+    width: 300px;
   }
   .note-list > li {
     height: 45px !important;
@@ -235,18 +233,11 @@ body {
     } 
 
   .flexContainer {
-    /* display: flex; */
-    /* justify-content: left;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    overflow: auto; */
     margin-left: 0px;
   }
 
 }
 
-
-/* ---END OF  RESPONSIVE TWEAKS */
 
 .notesList {
   float: left;
@@ -256,7 +247,7 @@ body {
 
 .page-tool-box {
   flex: 1;
-  /* width: 190px; */
+  width: 295px; 
   align-items: center;
   list-style-type: none;
   border: none;
@@ -279,7 +270,7 @@ body {
 
 .note-list {
   flex: 1;
-  /* width: 190px; */
+  width: 325px; 
   align-items: center;
   list-style-type: none;
   border: none;
@@ -288,7 +279,6 @@ body {
   padding-left: 0px;
   box-shadow: 3px 3px 5px #ccc;
   transition: background-color var(--transition-delay);
-  /*background-color: var(--background-color);*/
   color: var(--text-color);
 }
 
@@ -362,8 +352,6 @@ body {
   width: 70%;
   float: left;
 }
-
-
 
 .noteContainer input[type="submit"] {
   background-color: #005392;
@@ -450,25 +438,27 @@ body {
   }
 }
 
-.ck.ck-editor__editable > .ck-placeholder::before {
+.ck.ck-editor__editable_2 > .ck-placeholder::before {
   color: darkgray;
   font-family: "Open Sans", sans-serif; 
 }
 
 #editor {
   flex: 1 1 auto;
-  padding-top: 50px;
+  margin-top: 70px;
+  margin-left: 170px;
   height: 600px;
   max-width: 70%;
 }
 
 #title {
   display: block;
-  width: 90%;
+  width: 80%;
   border: none;
   outline: none;
+  margin-left: 170px;
+  margin-top: 70px;
   font-size: 20px;
-  padding: 10px 10px 0px 10px;
   margin-bottom: 0px;
   font-family: "Open Sans", sans-serif;
   transition: background-color var(--transition-delay);
@@ -498,12 +488,14 @@ body {
   width: 500px;
   height: 350px;
   border-radius: 5px;
-  background-color: rgba(68, 65, 65, 0.7);
-  opacity: 0.7;
+  background-color: rgba(68, 65, 65, 0.6); 
+
+ /* opacity: 0.7; */
   position: absolute; 
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);display: flex;
+  transform: translate(-50%, -50%); 
+  display: flex;
   display:none;  
 }
 .modal-title{
@@ -681,8 +673,7 @@ body {
     width: 400px;
     height: 300px;
     border-radius: 5px;
-  opacity: 0.9;
-
+    background-color: rgba(68, 65, 65, 0.9);
 } 
 
   .modal-title{
@@ -713,8 +704,6 @@ body {
 .btn-text{
   display: none;
 }
-
-
   .cancel-save-container{
     margin-top: 13px ;
   }
