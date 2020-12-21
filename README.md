@@ -1,6 +1,6 @@
-# Quire – a new note-book concept in your browser
+# Quire – the note-book  in your browser
 
-“Quire” is a beta version of a multifunctional note-book concept in your browser. This product allows you to create and personalize your notes and store them in local storage. 
+“Quire” is the a new multifunctional note-book in your browser. This product allows you to create and personalize your notes and store them in local storage. 
 HTLM 5, CSS3, JS (no frameworks) and CK Editor 5, a rich text editor library has been used to develop thee book. It  is  responsive and compatible with Chrome, FireFox and Safari.
 
 
@@ -22,7 +22,9 @@ The project was set up as if it was in for a company on the market . The project
 ## Contributors
 
 <img src="img/github/negin.jpg" width="150px" height="150px" align="left" padding="20px">
+
 ### Negin Jalalian
+
 
 <br>
 <br>
@@ -43,16 +45,16 @@ Anna Pettersson
 Production focus: JS-structure for creating and saving notes in local storage + render notes in gray note bar, HTML5 & CSS3 page layout, implementation of CK Editor 5 & Moment library, responsive design features and intro pop up. 
 [Github](https://github.com/bannanaz) & [LinkedIn](https://www.linkedin.com/in/anlepet/)
 ### Anna Pettersson
-Production focus: JS-structure for creating and saving notes in local storage + render notes in gray note bar, HTML5 & CSS3 page layout, implementation of CK Editor 5 & Moment library, responsive design features and intro pop up. 
+Production focus: JS-structure for creating and saving notes in local storage + render notes in gray note bar, HTML5 & CSS3 page layout, implementation of CK Editor 5 & Moment library, responsive design features and intro pop up. <br>
 [Github](https://github.com/bannanaz) & [LinkedIn](https://www.linkedin.com/in/anlepet/)
 
 
 ### Mathilda Storm
-Production focus: Contributed with a JavaScript function that makes it possible to bookmark favorite notes and get all favorites listed in Quire. The course of the project encompasses JS / HTML/ CSS/ GIT / GITHUB. Scrum master limited time during the project. Developed basis for the team's Trello Board which is a mix of Scrum + Kanban. 
+Production focus: Contributed with a JavaScript function that makes it possible to bookmark favorite notes and get all favorites listed in Quire. The course of the project encompasses JS / HTML/ CSS/ GIT / GITHUB. Scrum master limited time during the project. Developed basis for the team's Trello Board which is a mix of Scrum + Kanban. <br>
 Github & LinkedIn
 
 
-### Rocky Miah
-Production focus: 
-Github & LinkedIn
+### Rocky Miah <br>
+Production focus: <br>
+Github & LinkedIn <br>
 
