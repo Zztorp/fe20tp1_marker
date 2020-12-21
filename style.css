@@ -156,7 +156,7 @@ body {
 }
  */
 /* --- RESPONSIVE TWEAKS */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   /* For mobile phones: */
   .notesList {
     width: calc(100% - 10px) !important; /* display: block; */
@@ -169,8 +169,12 @@ body {
     width: calc(100% - 10px) !important;
   }
   #editor {
-    width: 95% !important;
     height: 100% !important;
+    margin-left: 15px;
+  }
+
+  #title {
+    margin-left: 15px;
   }
 }
 
@@ -186,10 +190,14 @@ body {
       margin: 5px !important;
       width: calc(100% - 10px) !important;
     }
-    #editor {
-      width: 95% !important;
-      height: 100% !important;
-    }
+     #editor {
+    height: 100% !important;
+    margin-left: 15px;
+  }
+
+  #title {
+    margin-left: 15px;
+  }
 
   .leftTabs {
     display: flex;
@@ -271,7 +279,7 @@ body {
 
 .notesList {
   float: left;
-  width: 190px;
+  width: 230px;
 }
 /* hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh */
 
@@ -415,7 +423,7 @@ body {
   height: 40px;
   font-size: 16px;
   margin-top: 1rem;
-  margin-left: 1rem;
+  padding-left: 15px;
   cursor: pointer;
   border-radius: 5px;
   z-index: 1;
@@ -446,7 +454,7 @@ body {
 }
 
 /* --- RESPONSIVE TWEAKS --- */
- @media only screen and (max-width: 1300px) {
+ @media only screen and (max-width: 1400px) {
 
   .noteContainer input[type="submit"]{
     right: 6%;
@@ -457,7 +465,7 @@ body {
     right: 6%;
   }
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
 .noteContainer input[type="submit"] {
   background-color: #005392;
   color: white;
@@ -466,14 +474,14 @@ body {
   height: 40px;
   font-size: 16px;
   margin-top: 1rem;
-  margin-left: 1rem;
+  margin-left: 2rem;
   cursor: pointer;
   border-radius: 5px;
   position: unset !important;
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
 .noteContainer input[type="button"] {
   background-color: #005392;
   color: white;
@@ -482,7 +490,7 @@ body {
   height: 40px;
   font-size: 16px;
   margin-top: 1rem;
-  margin-left: 1rem;
+  margin-left: 2rem;
   cursor: pointer;
   border-radius: 5px;
   position: unset !important;
@@ -496,10 +504,10 @@ body {
 }
 
 #editor {
-  flex: 1 1 auto;
+  flex: 1;
+  max-width: 80%;
   padding-top: 25px;
   height: 600px;
-  max-width: 70%;
   border: none;
   outline: none;
   box-shadow: none;
@@ -508,7 +516,7 @@ body {
 
 #title {
   display: block;
-  width: 90%;
+  width: 80%;
   border: none;
   outline: none;
   margin-top: 41px;
