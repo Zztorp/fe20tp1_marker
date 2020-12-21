@@ -17,28 +17,30 @@ The project was set up as if it was in for a company on the market . The project
 
 ## Contributors
 
-
-
+<img src="img/github/negin.jpg" width="150px" height="150px" align="left" padding="20px">
 ### Negin Jalalian
-
 Production focus:  Implemented the  rich text editor library, CK Editor.  Developed  the  search function and the dark mode option. Worked on the CSS and the  responsive design features. This was  the first project where I used Git and GitHub. 
 
 [Github](https://github.com/negin1) & [LinkedIn](https://www.linkedin.com/in/negin-jalalian-68324824/)
+<br>
+<br>
+<br>
 
 
 <img src="img/github/anna.png" width="150px" height="150px" align="right" padding="60px">
-
-
-
-
 ### Anna Pettersson
 Production focus: JS-structure for creating and saving notes in local storage + render notes in gray note bar, HTML5 & CSS3 page layout, implementation of CK Editor 5 & Moment library, responsive design features and intro pop up. <br>
 [Github](https://github.com/bannanaz) & [LinkedIn](https://www.linkedin.com/in/anlepet/)
-
+<br>
+<br>
+<br>
 
 ### Mathilda Storm
 Production focus: Contributed with a JavaScript function that makes it possible to bookmark favorite notes and get all favorites listed in Quire. The course of the project encompasses JS / HTML/ CSS/ GIT / GITHUB. Scrum master limited time during the project. Developed basis for the team's Trello Board which is a mix of Scrum + Kanban. <br>
 Github & LinkedIn
+<br>
+<br>
+<br>
 
 
 ### Rocky Miah <br>
