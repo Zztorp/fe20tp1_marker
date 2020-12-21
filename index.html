@@ -24,11 +24,12 @@
     <!-- The blue tool box -->
     <div class="tabbed-content">
         <ul class="leftTabs">
-            <li>Q</li>
-            <li>Add note</li>
-            <li id="listFavorites">Favourite</li>
-            <li>Print</li>
-            <li id="btnSettings">Settings</li>
+            <li tabindex="1">Q</li>
+            <li tabindex="2"></li>
+            <li id="listFavorites" tabindex="3"></li>
+            <li tabindex="4"></li>
+            <li id="btnSettings" tabindex="5"></li>
+            <!-- <li>Statistics</li>-->
         </ul>
 
     </div>
@@ -37,8 +38,7 @@
         <div class="intropopup-content">
             <h1>Q<span>uire</span></h1>
             <p>Quire is the new multifunctional note-book in your browser. Just press "plus" to start your next
-                novel or shopping-list. Made by group Marker, students from Kyh Front-end Developer program. Enjoy
-                your nextnote!</p>
+                novel ... or shopping-list. Enjoy your nextnote!</p>
             <div class="exitintro">+</div>
         </div>
     </div>
@@ -50,12 +50,12 @@
             <div class="page-tool-box" id="PanelAddNote">
                 <h1 class="noteTitle">Your notes</h1>
                 <!--<p class="noteDate">Tell your story..</p>-->
-                <div class="searchBox">
-                    <img class="magnifyingGlass" src="/img/searchicon.png" alt="magnifying glass">
-                    <input type="text" class="search" name="search" placeholder="Search notes..." />
-                    
-                </div>
+                <input type="text" class="search" name="search" tabindex="6" placeholder="Search notes..." />
+                <!--     </div>
+            <div id="search-notes panel" class='searchNotes'>
+                 -->
             </div>
+            <ul class="note-list" id="noteList" tabindex="7">
 
 
             <ul class="note-list" id="noteList"> 

@@ -54,7 +54,7 @@ function printNote(title, editorData, timestamp, favorite) {
     noteTitle.textContent = title;
     noteDate.textContent = moment().format('ll');
     let strippedString = editorData.replace(/(<([^>]+)>)/gi, "");
-    noteEditorData.textContent = strippedString;
+    noteEditorData.textContent = strippedString.slice(0, 35) + (" ...");
 
     //favorite
     favoriteImg.setAttribute('type', "submit");
@@ -80,6 +80,7 @@ function printNote(title, editorData, timestamp, favorite) {
     } else if (favorite == "false") {
         favoriteImg.src = "img/star-regular.svg";
     }
+    return favoriteImg;
 }
 
 /*
@@ -98,11 +99,11 @@ function findMyNotes(){
 
 //---- collect array objects from local storage
 function collectFromLocalStorage() {
-    if (localStorage.length !== 0) {
+    if (localStorage.getItem("myNotes") !== null) {
         allNotes = JSON.parse(localStorage.getItem("myNotes"));
-    }
-    for (var i = 0; i < allNotes.length; i++) {
-        printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp, allNotes[i].favorite);
+        for (var i = 0; i < allNotes.length; i++) {
+            printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp, allNotes[i].favorite);
+        }
     }
 };
 
@@ -125,23 +126,18 @@ function updateNote() {
     localStorage.setItem("myNotes", JSON.stringify(allNotes));
 }
 
-function updateNote() {
-    let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
-    noteObj.editorData = editor.getData();
-    noteObj.title = createNote.querySelector('#title').value;
-    localStorage.setItem("myNotes", JSON.stringify(allNotes));
-}
-
 //---- add latest note to array and print array in left menu
 const createNote = document.forms.note;
 createNote.addEventListener("submit", function (e) {
-    e.preventDefault(); /* Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas */
+    e.preventDefault(); //Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
 
     if (getActiveNote()) {
         let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
         noteObj.editorData = editor.getData();
         noteObj.title = createNote.querySelector('#title').value;
         localStorage.setItem("myNotes", JSON.stringify(allNotes));
+        document.querySelector("#noteList").innerHTML = ""; // tömmer listan
+        collectFromLocalStorage(); //renderar listan
     }
 
     else {
@@ -153,15 +149,18 @@ createNote.addEventListener("submit", function (e) {
 
         allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp, favorite);
 
-        printNote(title, editorData, timestamp, favorite);
+        let newFavImg = printNote(title, editorData, timestamp, favorite);
+        displayActiveNote(timestamp); // sätter nyskapad note till aktiv
         localStorage.setItem("myNotes", JSON.stringify(allNotes));
+        handleFavoriteButton(newFavImg)
     }
 });
 
-//--- give note ID and display in CK Editor
+//--- give note ID and display in CK Editor LOAD
 document.querySelector('ul.note-list').addEventListener('click', function (evt) {
     let clickedLI = evt.target.closest('li');
     let clickedID = Number(clickedLI.getAttribute('data-id'));
+    // ev lägg till om evt.target.classList contains favorite? isf gör ingenting
     let clickedNoteObject = allNotes.find(note => note.timestamp === clickedID)
     editor.setData(clickedNoteObject.editorData);
     document.getElementById("title").value = clickedNoteObject.title;
@@ -237,6 +236,55 @@ search.addEventListener('keyup', function (e) {
 // Favorite Function START:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 // Med querySelectorAll hämtar vi klassen favorit
+
+function handleFavoriteButton(favoriteButton) {
+    favoriteButton.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        var note = e.target.parentElement; //Parent i det här fallet är den skapade noten
+
+        //Här skapas favoritnoten.
+        let title = note.childNodes[0].textContent;
+        let editorData = note.childNodes[2].textContent; //hämta vald notes content
+        let timestamp = note.childNodes[1].textContent; // hämta datumet också
+        let favorite = note.childNodes[3].textContent;
+
+        // ATT GÖRA FAVORITER(::TRUE) LÄGGS IN I favoriteNotes arrayen.
+        //testconetent kan inte vara boolean var tvungen att ändra till "string"
+        if (e.target.textContent == "false") {
+            favorite = e.target.textContent = "true";
+            e.target.src = "img/star-solid.svg";
+
+            for (var i = 0; i < allNotes.length; i++) {
+                //console.log("NUMBER FROM ALLNOTES NOTE: " + JSON.stringify(allNotes[i].timestamp));
+                if (allNotes[i].title == title) {
+                    allNotes[i].favorite = "true";
+                }
+            }
+            localStorage.setItem("myNotes", JSON.stringify(allNotes));
+            //localStorage.setItem("myFavoriteNotes", JSON.stringify(favoriteNotes));
+
+            // uppdatera favorites i local
+            // * for loop ittererar genom allNotes
+            // * i foor loopen ska det vara en if-sats
+        } else if (e.target.textContent == "true") {
+            e.target.textContent = "false";
+            e.target.src = "img/star-regular.svg";
+
+            for (var i = 0; i < allNotes.length; i++) {
+                //console.log("NUMBER FROM ALLNOTES NOTE: " + JSON.stringify(allNotes[i].timestamp));
+                if (allNotes[i].title == title) {
+                    allNotes[i].favorite = "false";
+                }
+            }
+            localStorage.setItem("myNotes", JSON.stringify(allNotes));
+
+        }
+
+    });
+}
+document.querySelectorAll(".favorite").forEach(handleFavoriteButton);
+/*
 document.querySelectorAll(".favorite").forEach(favoriteButton => {
     favoriteButton.addEventListener("click", function (e) {
         e.preventDefault();
@@ -283,7 +331,7 @@ document.querySelectorAll(".favorite").forEach(favoriteButton => {
 
     });
 });
-
+*/
 
 // Favorite Function END:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -329,21 +377,51 @@ document.querySelector('.save').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
 
+//----- Dark mode save to lovalstorage ---
 
-//-----Night mode ---- WORKINGS
+let darkMode = localStorage.getItem('darkMode');
+const darkModeToggleBtn = document.querySelector('.theme-toggle-button');
 
-document.querySelector('.theme-toggle-button').addEventListener('click', function () {
+const enableDarkMode = () => {
     document.body.classList.toggle('modal-content-dark');
     document.getElementById('title').classList.toggle('setTitle-dark');
     document.getElementById('noteList').classList.toggle('note-list-dark');
     document.getElementById('PanelAddNote').classList.toggle('toolbox-dark');
 
-});  
+    localStorage.setItem('darkMode', 'enabled');
+};
 
+const disableDarkMode = () => {
+    document.body.classList.remove('modal-content-dark');
+    document.getElementById('title').classList.remove('setTitle-dark');
+    document.getElementById('noteList').classList.remove('note-list-dark');
+    document.getElementById('PanelAddNote').classList.remove('toolbox-dark');
 
+    localStorage.setItem('darkMode', null);
+};
 
+if (darkMode === "enabled") {
+    enableDarkMode();
+}
 
+darkModeToggleBtn.addEventListener('click', function () {
+    darkMode = localStorage.getItem('darkMode');
+    if (darkMode !== "enabled") {
+        enableDarkMode();
+        console.log(darkMode);
+    } else {
+        disableDarkMode();
+        console.log(darkMode);
+    }
+});
 
+//----- Dark mode previous ---
+/*document.querySelector('.theme-toggle-button').addEventListener('click', function () {
+    document.body.classList.toggle('modal-content-dark');
+    document.getElementById('title').classList.toggle('setTitle-dark');
+    document.getElementById('noteList').classList.toggle('note-list-dark');
+    document.getElementById('PanelAddNote').classList.toggle('toolbox-dark');
+});*/
 
 //----- Intro popup ----
 
@@ -359,7 +437,6 @@ if (!localStorage.getItem('modalopened')) {
     document.querySelector('.intro-popup').style.display = 'flex';
     localStorage.setItem("modalopened", true);
 }
-
 
 //----Close intro-modal window via the exit crossmark
 document.querySelector('.exitintro').addEventListener('click', function () {
