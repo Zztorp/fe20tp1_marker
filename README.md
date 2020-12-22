@@ -1,32 +1,39 @@
 
 
-# Quire – the note-book  in your browser
 
-“Quire” is the new multifunctional note-book in your browser. This product allows you to create and personalize your notes and store them in local storage. 
-HTLM 5, CSS3, JS and CK Editor 5 has been used to develop the note-book. It  is  responsive and compatible with Chrome, FireFox and Safari.
+# Quire – the notebook  in your browser
 
+Quire is the new multifunctional notebook in your browser. It allows you to create and personalize your notes and store them in local storage. You can  mark your note as favourite, search for yur notes and delete them.
+<br>
 
-### Functions
-Create notes, search, save, update, delete and mark your note as favourite.
-The Quire product itself is also available in dark mode.   
-
-<img src="img/github/desktop_view.png" width="300px" height="200px"   align="center" >
+HTLM 5, CSS3, JS and  the  rich text editor library CK Editor 5 have been used to develop the notebook. It  is  responsive and compatible with Chrome, FireFox and Safari. Quire is available in dark mode.   
 <br>
 <br>
 
 
+
+
+
+
+  <tr>
+    <td><img src="img/github/desktop_view.png" width=300 height=200  float="left" padding="40px"></td>
+     <td><img src="img/github/mobile_view.png" width=60 height=110></td>
+  </tr>
+<br>
 
 ## The process 
-The project was set up as if it was in for a company on the market . The project had its own project owner and a CTO and a scrum methodology was used to develop the note-book. The group members daily scrums, weekly meetings with the project owner and weekly code reviews with the CTO. Feel free to look at our scrum board on [Trello](https://trello.com/b/88BX5SUp/team-template)
+The project was set up as if it was for a tech company. The project had its own project owner and a CTO and a scrum methodology was used to develop the notebook. The group members had daily scrums, weekly meetings with the project owner and weekly code reviews with the CTO. Feel free to look at the  scrum board on [Trello](https://trello.com/b/88BX5SUp/team-template).
+<br>
+<br>
+
 ## Contributors 
-<br>
-<br>
+
 <br>
 
 <img src="img/github/negin.jpg" width="150px" height="150px" align="left" padding="60px">
 
 ### Negin Jalaian
- Production focus:  Implemented the  rich text editor library, CK Editor.  Developed  the  search function and the dark mode feature. Worked on the CSS and the  responsive design features. This was  the first project where I used Git and GitHub. 
+ Production focus:   Implementation of CK Editor 5, developed  the  search function and the dark mode feature. Worked on the  HTLM, CSS and the  responsive design features. This was  the first project where I used Git and GitHub. 
 
 [Github](https://github.com/negin1) & [LinkedIn](https://www.linkedin.com/in/negin-jalalian-68324824/)
 <br>
@@ -51,5 +58,8 @@ Github & LinkedIn
 <br>
 <br>
 
+### Rocky Miah
+Production focus: <br>
+Github & LinkedIn
 
 
