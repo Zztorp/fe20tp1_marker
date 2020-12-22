@@ -15,8 +15,7 @@ HTLM 5, CSS3, JS and  the  rich text editor library CK Editor 5 have been used t
 
 
 ## The process 
-The project was set up as if it was for a tech company. The project had its own project owner and a CTO and a scrum methodology was used to develop the notebook. The group members had daily scrums, weekly meetings with the project owner and weekly code reviews with the CTO. <br> 
-Feel free to look at the  scrum board on [Trello](https://trello.com/b/88BX5SUp/team-template)
+The project was set up as if it was for a tech company. The project had its own project owner and a CTO and a scrum methodology was used to develop the notebook. The group members had daily scrums, weekly meetings with the project owner and weekly code reviews with the CTO. Feel free to look at the  scrum board on [Trello](https://trello.com/b/88BX5SUp/team-template).
 <br>
 <br>
 
