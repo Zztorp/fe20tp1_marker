@@ -26,7 +26,7 @@ The project was set up as if it was for a tech company. The project had its own 
 <img src="img/github/negin.jpg" width="150px" height="150px" align="left" padding="60px">
 
 ### Negin Jalaian
- Production focus:  Implemented the  rich text editor library, CK Editor.  Developed  the  search function and the dark mode feature. Worked on the CSS and the  responsive design features. This was  the first project where I used Git and GitHub. 
+ Production focus:   Implementation of CK Editor 5, developed  the  search function and the dark mode feature. Worked on the  HTLM, CSS and the  responsive design features. This was  the first project where I used Git and GitHub. 
 
 [Github](https://github.com/negin1) & [LinkedIn](https://www.linkedin.com/in/negin-jalalian-68324824/)
 <br>
