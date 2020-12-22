@@ -96,6 +96,8 @@ function printNote(title, editorData, timestamp, favorite, template) {
     return favoriteImg;
 }
 
+
+
 /*
 //Funktion för att komplitera if-sats under denna funktion. 
 //findMyNotes funktionen loopar igenom varje item, om den hittar key med propertyName "myNotes" return true && nu är båda parametrarna i if-satsen godkända och kan gå in.
@@ -170,7 +172,7 @@ var curTemplate;
 const currentTemplate = document.getElementById("editor");
 const createNote = document.forms.note;
 createNote.addEventListener("submit", function (e) {
-    e.preventDefault(); //Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
+    //e.preventDefault(); //Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
 
     if (getActiveNote()) {
         let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
@@ -532,11 +534,11 @@ document.querySelector('.firstTemplate').addEventListener('click', function (e) 
     if(document.getElementById("title").classList.contains("template2")){
         document.getElementById("title").classList.remove("template2");
         document.getElementById("editor").classList.remove("template2");
-        //document.getElementById("ck-editor__editable").classList.remove("template2");
+        document.getElementById("ck-editor__editable").classList.remove("template2");
     }
     document.getElementById("title").classList.add("template1");
     document.getElementById("editor").classList.add("template1");
-    //document.getElementsById("ck-editor__editable").classList.add("template1");
+    document.getElementsById("ck-editor__editable").classList.add("template1");
 console.log(getCurrentTemplate());
 
 });
@@ -548,11 +550,11 @@ document.querySelector('.secondTemplate').addEventListener('click', function (e)
     {
         document.getElementById("title").classList.remove("template1");
         document.getElementById("editor").classList.remove("template1");
-        //document.getElementById("ck-editor__editable").classList.remove("template1");
+        document.getElementById("ck-editor__editable").classList.remove("template1");
     }
         document.getElementById("title").classList.add("template2");
         document.getElementById("editor").classList.add("template2");
-        //document.getElementById("ck-editor__editable").classList.add("template2");
+        document.getElementById("ck-editor__editable").classList.add("template2");
         console.log(getCurrentTemplate());
 
 });

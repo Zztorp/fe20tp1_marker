@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sail&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&family=Londrina+Shadow&display=swap");
 
 * {
   margin: 0;
@@ -446,6 +448,23 @@ body {
   top: 450px;
 }
 
+.noteContainer .dropbtn {
+  background-color: #005392;
+  color: white;
+  border: none;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1;
+  position: absolute;
+  right: 18%;
+  top: 500px;
+}
+
 /* --- RESPONSIVE TWEAKS --- */
 @media only screen and (max-width: 1400px) {
   .noteContainer input[type="submit"] {
@@ -453,6 +472,10 @@ body {
   }
 
   .noteContainer input[type="button"] {
+    right: 6%;
+  }
+
+  .noteContainer .dropbtn {
     right: 6%;
   }
 }
@@ -474,6 +497,22 @@ body {
 
 @media only screen and (max-width: 1000px) {
   .noteContainer input[type="button"] {
+    background-color: #005392;
+    color: white;
+    border: none;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    position: unset !important;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .noteContainer .dropbtn {
     background-color: #005392;
     color: white;
     border: none;
@@ -530,8 +569,9 @@ body {
 /*Template CSS*/
 
 .template1 {
-  font-family: "Special Elite", cursive !important;
-  background-color: lightslategrey !important;
+  font-family: "IM Fell Great Primer SC", serif;
+  background: url(https://cdn.discordapp.com/attachments/749985626933166155/790889886730158090/anna-template.png)
+    no-repeat;
   font-size: 20px !important;
 }
 /*.template1::placeholder {
@@ -540,7 +580,12 @@ body {
 }*/
 
 .template2 {
-  background-color: red !important;
+  /*background-color: red !important;*/
+  background: url(https://cdn.discordapp.com/attachments/749985626933166155/790894683882520626/negin-template.png)
+    no-repeat;
+  color: black;
+  font-size: 20px;
+  font-family: "Emilys Candy", cursive;
 }
 /*STAR FAVORITE CSS*/
 
