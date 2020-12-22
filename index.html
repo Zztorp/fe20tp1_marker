@@ -24,11 +24,11 @@
     <!-- The blue tool box -->
     <div class="tabbed-content">
         <ul class="leftTabs">
-            <li>Q</li>
-            <li>Add note</li>
-            <li id="listFavorites">Favourite</li>
-            <li>Print</li>
-            <li id="btnSettings">Settings</li>
+            <li tabindex="1">Q</li>
+            <li tabindex="2"></li>
+            <li id="listFavorites" tabindex="3"></li>
+            <li tabindex="4"></li>
+            <li id="btnSettings" tabindex="5"></li>
             <!-- <li>Statistics</li>-->
         </ul>
 
@@ -37,12 +37,8 @@
     <div class="intro-popup">
         <div class="intropopup-content">
             <h1>Q<span>uire</span></h1>
-            <p>Quire is the new high quality note-app in your browser. Just press "plus" to start your next
-                novel
-                ... or
-                shopping-list. Made by group Marker, students from Kyh Front-end Developer program. Enjoy
-                your next
-                note!</p>
+            <p>Quire is the new multifunctional note-book in your browser. Just press "plus" to start your next
+                novel ... or shopping-list. Enjoy your nextnote!</p>
             <div class="exitintro">+</div>
         </div>
     </div>
@@ -54,12 +50,12 @@
             <div class="page-tool-box" id="PanelAddNote">
                 <h1 class="noteTitle">Your notes</h1>
                 <!--<p class="noteDate">Tell your story..</p>-->
-                <input type="text" name="search" placeholder="Search notes..." />
+                <input type="text" class="search" name="search" tabindex="6" placeholder="Search notes..." />
                 <!--     </div>
             <div id="search-notes panel" class='searchNotes'>
                  -->
             </div>
-            <ul class="note-list" id="noteList">
+            <ul class="note-list" id="noteList" tabindex="7">
 
                 <!-- <li>
                     <p class="noteTitle">test</p>
@@ -74,11 +70,15 @@
         <!-- /*  RESPONSIVE TWEAKS */ -->
         <div class="noteContainer">
             <form id="note">
-                <input type="text" name="title" id="title" value="" placeholder="Give your note a title" required>
+
+                <input type="text" name="title" id="title" class="setTitle" value=""
+                    placeholder="Give your note a title" required>
                 <div id="editor"></div>
-                <input type="submit" id="submitNote" value="SAVE">
-                <!--  DELETE NOTE BUTTON -->
-                <input type="button" id="deleteNote" value="DELETE">
+                <div>
+                    <input type="submit" id="submitNote" value="SAVE">
+                    <!--  DELETE NOTE BUTTON -->
+                    <input type="button" id="deleteNote" value="DELETE">
+                </div>
             </form>
             <div class="dropdown">
                 <button onclick="dropdownFunction()" class="dropbtn">TEMPLATE</button>
@@ -92,10 +92,11 @@
 
         <div class="bg-modal">
             <div class="modal-content">
+                <div class="exit">+</div>
                 <div class="swap-container">
-                    <div class="exit">+</div>
                     <div class="theme-swapper">
-                        <h2 class="modal-title">Themme Swapper</h2>
+                        <h2 class="modal-title">Take care of your eyes <br>
+                            choose the theme that suite you best</h2>
 
                         <button class="theme-toggle-button">
                             <svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -104,7 +105,7 @@
                             </svg>
                             Swap Themes
                         </button>
-                        <div class="">
+                        <div class="sun-moon-container">
                             <svg class="sun" style="width:24px;height:24px" viewBox="0 0 24 24">
                                 <path
                                     d="M3.55,18.54L4.96,19.95L6.76,18.16L5.34,16.74M11,22.45C11.32,22.45 13,22.45 13,22.45V19.5H11M12,5.5A6,6 0 0,0 6,11.5A6,6 0 0,0 12,17.5A6,6 0 0,0 18,11.5C18,8.18 15.31,5.5 12,5.5M20,12.5H23V10.5H20M17.24,18.16L19.04,19.95L20.45,18.54L18.66,16.74M20.45,4.46L19.04,3.05L17.24,4.84L18.66,6.26M13,0.55H11V3.5H13M4,10.5H1V12.5H4M6.76,4.84L4.96,3.05L3.55,4.46L5.34,6.26L6.76,4.84Z" />
@@ -126,7 +127,7 @@
 
             </div>
         </div>
-
+    </div>
 </body>
 
 </html>
