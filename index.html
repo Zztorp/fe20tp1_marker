@@ -74,13 +74,19 @@
         <!-- /*  RESPONSIVE TWEAKS */ -->
         <div class="noteContainer">
             <form id="note">
-
                 <input type="text" name="title" id="title" value="" placeholder="Give your note a title" required>
                 <div id="editor"></div>
                 <input type="submit" id="submitNote" value="SAVE">
                 <!--  DELETE NOTE BUTTON -->
                 <input type="button" id="deleteNote" value="DELETE">
             </form>
+            <div class="dropdown">
+                <button onclick="dropdownFunction()" class="dropbtn">TEMPLATE</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a class="firstTemplate" href="#template" >Template 1</a>
+                    <a class="secondTemplate" href="#template" >Template 2</a>
+                </div> 
+            </div>
         </div>
 
 

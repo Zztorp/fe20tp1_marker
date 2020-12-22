@@ -6,6 +6,8 @@ let noteTitle = document.createElement("h3");
 let noteEditorData = document.createElement("p");
 let noteDate = document.createElement("p");
 let favoriteImg = document.createElement("img");
+let templateStyle = document.querySelector(".template");
+
 
 
 /* ========== CK Editor ================== */
@@ -21,14 +23,15 @@ BalloonEditor
     });
 
 var allNotes = [];
-var favoriteNotes = [];
+//var favoriteNotes = [];
 
 
-function NoteObject(title, editorData, timestamp, favorite) {
+function NoteObject(title, editorData, timestamp, favorite, template) {
     this.title = title;
     this.editorData = editorData;
     this.timestamp = timestamp;
     this.favorite = favorite;
+    this.template = template;
 };
 
 // -- get active note
@@ -39,7 +42,7 @@ function getActiveNote() {
 }
 
 // ---- print notes in left note-menu
-function printNote(title, editorData, timestamp, favorite) {
+function printNote(title, editorData, timestamp, favorite, template) {
 
     //Create html-elements
     menuList = document.querySelector("#noteList");
@@ -49,6 +52,7 @@ function printNote(title, editorData, timestamp, favorite) {
     noteEditorData = document.createElement("p");
     noteDate = document.createElement("p");
     favoriteImg = document.createElement("img");
+
 
     //Add text content
     noteTitle.textContent = title;
@@ -66,6 +70,15 @@ function printNote(title, editorData, timestamp, favorite) {
     noteDate.classList.add('noteDate');
     noteEditorData.classList.add('noteEditorData');
     favoriteImg.classList.add('favorite');
+    
+    //Set class depending on chosen template
+    if(template == "template1"){
+        li.classList.add('template1')
+    }else if(template == "template2"){
+        li.classList.add('template2')
+    }else{
+        li.classList.add('defaultTemp')
+    }
 
     //Append to DOM
     li.appendChild(noteTitle);
@@ -102,7 +115,7 @@ function collectFromLocalStorage() {
         allNotes = JSON.parse(localStorage.getItem("myNotes"));
     }
     for (var i = 0; i < allNotes.length; i++) {
-        printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp, allNotes[i].favorite);
+        printNote(allNotes[i].title, allNotes[i].editorData, allNotes[i].timestamp, allNotes[i].favorite, allNotes[i].template);
     }
 };
 
@@ -122,6 +135,7 @@ function updateNote() {
     let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
     noteObj.editorData = editor.getData();
     noteObj.title = createNote.querySelector('#title').value;
+    noteObj.template = getCurrentTemplate();
     localStorage.setItem("myNotes", JSON.stringify(allNotes));
 }
 
@@ -129,10 +143,30 @@ function updateNote() {
     let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
     noteObj.editorData = editor.getData();
     noteObj.title = createNote.querySelector('#title').value;
+    noteObj.template = getCurrentTemplate();
     localStorage.setItem("myNotes", JSON.stringify(allNotes));
 }
 
+
+function getCurrentTemplate(){
+var curTemplate;
+
+    if(document.getElementById("title").classList.contains("template1")){
+        curTemplate = "template1"
+        return curTemplate;
+    }
+    else if(document.getElementById("title").classList.contains("template2")){
+        curTemplate = "template2";
+        return curTemplate;
+    }
+    else
+        curTemplate = "defaultTemp";
+        return curTemplate;
+}
+
+
 //---- add latest note to array and print array in left menu
+const currentTemplate = document.getElementById("editor");
 const createNote = document.forms.note;
 createNote.addEventListener("submit", function (e) {
     //e.preventDefault(); Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
@@ -141,6 +175,8 @@ createNote.addEventListener("submit", function (e) {
         let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
         noteObj.editorData = editor.getData();
         noteObj.title = createNote.querySelector('#title').value;
+        noteObj.template = getCurrentTemplate();
+
         localStorage.setItem("myNotes", JSON.stringify(allNotes));
     }
 
@@ -150,12 +186,16 @@ createNote.addEventListener("submit", function (e) {
         let editorData = editor.getData();
         let timestamp = Date.now(); //Should timestamp be the "ID" of each note?
         let favorite = "false"; // Give cr8ted note false default value.
+        let template = getCurrentTemplate();
+        
+        
 
-        allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp, favorite);
-
-        printNote(title, editorData, timestamp, favorite);
+        allNotes[allNotes.length] = new NoteObject(title, editorData, timestamp, favorite, template);
+        
+        printNote(title, editorData, timestamp, favorite, template);
         localStorage.setItem("myNotes", JSON.stringify(allNotes));
     }
+
 });
 
 //--- give note ID and display in CK Editor
@@ -165,6 +205,23 @@ document.querySelector('ul.note-list').addEventListener('click', function (evt) 
     let clickedNoteObject = allNotes.find(note => note.timestamp === clickedID)
     editor.setData(clickedNoteObject.editorData);
     document.getElementById("title").value = clickedNoteObject.title;
+    
+
+    if(document.getElementById("title").classList.contains("template1")){
+    
+        document.getElementById("title").classList.remove("template1");
+        document.getElementById("editor").classList.remove("template1");
+    }else if(document.getElementById("title").classList.contains("template2")){
+    
+        document.getElementById("title").classList.remove("template2");
+        document.getElementById("editor").classList.remove("template2");
+    }
+    
+
+    document.getElementById("editor").classList.add(clickedNoteObject.template);
+    document.getElementById("title").classList.add(clickedNoteObject.template);
+    
+    
     displayActiveNote(clickedID);
 });
 
@@ -352,3 +409,87 @@ document.querySelector('.exitintro').addEventListener('click', function () {
     document.querySelector('.intro-popup').style.display = 'none';
 });
 
+
+//----------- TEMPLATE DROPDWON FUNCTION 
+
+// DropDown Function START
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function dropdownFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+document.querySelector('.firstTemplate').addEventListener('click', function (e) {
+    
+    if(document.getElementById("title").classList.contains("template2")){
+        document.getElementById("title").classList.remove("template2");
+        document.getElementById("editor").classList.remove("template2");
+        //document.getElementById("ck-editor__editable").classList.remove("template2");
+    }
+    document.getElementById("title").classList.add("template1");
+    document.getElementById("editor").classList.add("template1");
+    //document.getElementsById("ck-editor__editable").classList.add("template1");
+console.log(getCurrentTemplate());
+
+});
+
+document.querySelector('.secondTemplate').addEventListener('click', function (e) {
+    
+    //var  = e.target.classList
+    if(document.getElementById("title").classList.contains("template1"))
+    {
+        document.getElementById("title").classList.remove("template1");
+        document.getElementById("editor").classList.remove("template1");
+        //document.getElementById("ck-editor__editable").classList.remove("template1");
+    }
+        document.getElementById("title").classList.add("template2");
+        document.getElementById("editor").classList.add("template2");
+        //document.getElementById("ck-editor__editable").classList.add("template2");
+        console.log(getCurrentTemplate());
+
+});
+}
+
+/*document.getElementById('editor').addEventListener('click', function (e) {
+
+    console.log(getCurrentTemplate());
+    document.getElementById('editor').classList.add(getCurrentTemplate());
+});*/
+
+    
+        
+
+    /*var temp1ClassName = document.getElementsByClassName('template1');
+    var temp2ClassName = document.getElementsByClassName('template2');
+
+    console.log(temp1ClassName);
+
+    if(temp1ClassName == "template1"){
+        document.getElementById("title").className = "template1";
+        document.getElementById("editor").className = "template1";
+    }
+
+    if(temp2ClassName == "template2"){
+        document.getElementById("title").className = "template2";
+        document.getElementById("editor").className = "template2";
+    }*/
+ 
+
+/*function template2Func() {
+    document.getElementById("title").className = "template2";
+    document.getElementById("editor").className = "template2";
+
+}*/
+
+// DropDown Function END

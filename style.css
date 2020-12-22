@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+
 * {
   margin: 0;
 }
@@ -64,7 +67,7 @@ body {
   padding-top: 10px;
   color: white;
   background-color: black;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
 }
 
 .leftTabs li:nth-child(2) {
@@ -98,7 +101,6 @@ body {
   -webkit-mask-size: cover;
   mask-size: cover;
 }
-
 
 /* --- _ SEARCH BUTTON STYLING */
 .searchNotes > input {
@@ -136,19 +138,19 @@ body {
 
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
-    .notesList {
-      width: calc(100% - 10px) !important; /* display: block; */
-    }
-    .note-list > li {
-      height: 45px !important;
-    }
-    .noteContainer {
-      margin: 5px !important;
-      width: calc(100% - 10px) !important;
-    }
-    #editor {
-      height: 100% !important;
-    }
+  .notesList {
+    width: calc(100% - 10px) !important; /* display: block; */
+  }
+  .note-list > li {
+    height: 45px !important;
+  }
+  .noteContainer {
+    margin: 5px !important;
+    width: calc(100% - 10px) !important;
+  }
+  #editor {
+    height: 100% !important;
+  }
 
   .leftTabs {
     display: flex;
@@ -188,7 +190,7 @@ body {
     padding-top: 10px;
     color: white;
     background-color: black;
-    font-family: 'Libre Baskerville', serif;
+    font-family: "Libre Baskerville", serif;
   }
 
   .leftTabs li:nth-child(2) {
@@ -211,7 +213,7 @@ body {
     box-shadow: 3px 3px 5px #ccc;
     padding: 15px;
     margin-top: 70px;
-    } 
+  }
 
   .flexContainer {
     /* display: flex; */
@@ -221,9 +223,7 @@ body {
     overflow: auto; */
     margin-left: 0px;
   }
-
 }
-
 
 /* ---END OF  RESPONSIVE TWEAKS */
 
@@ -340,7 +340,6 @@ body {
   /* display: block; */
   width: 70%;
   float: left;
-  
 }
 
 .noteContainer input[type="submit"] {
@@ -381,36 +380,36 @@ body {
 /* --- RESPONSIVE TWEAKS --- */
 
 @media only screen and (max-width: 900px) {
-.noteContainer input[type="submit"] {
-  background-color: #005392;
-  color: white;
-  border: none;
-  width: 120px;
-  height: 40px;
-  font-size: 16px;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  position: unset !important;
-  align-content: center;
+  .noteContainer input[type="submit"] {
+    background-color: #005392;
+    color: white;
+    border: none;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    position: unset !important;
+    align-content: center;
   }
 }
 
 @media only screen and (max-width: 900px) {
-.noteContainer input[type="button"] {
-  background-color: #005392;
-  color: white;
-  border: none;
-  width: 120px;
-  height: 40px;
-  font-size: 16px;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  position: absolute;
-  position: unset !important;
+  .noteContainer input[type="button"] {
+    background-color: #005392;
+    color: white;
+    border: none;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    position: unset !important;
   }
 }
 
@@ -436,7 +435,27 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-/*FAVORITE CSS*/
+/*Default template*/
+.defaultTemp {
+  font-family: "Open Sans", sans-serif;
+}
+
+/*Template CSS*/
+
+.template1 {
+  font-family: "Special Elite", cursive !important;
+  background-color: lightslategrey !important;
+  font-size: 20px !important;
+}
+/*.template1::placeholder {
+  font-family: "Special Elite", cursive;
+  background-color: rgb(245, 136, 151);
+}*/
+
+.template2 {
+  background-color: red !important;
+}
+/*STAR FAVORITE CSS*/
 
 #favorite {
   height: 20px;
@@ -446,14 +465,9 @@ body {
   margin-top: -50px;
 }
 
-<<<<<<< HEAD
-/*Modal window*/
-.bg-modal {
-=======
 /*MODAL WINDOW*/
 
-.bg-modal{
->>>>>>> 3e563bb4086e085857584eecd5d429e7132297d4
+.bg-modal {
   border: 2px solid black;
   width: 500px;
   height: 300px;
@@ -463,31 +477,14 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);display: flex;
+  transform: translate(-50%, -50%);
+  display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  display: none; /*This will hide all the child elements */
+  display: none;
 }
 
 .modal-content {
-  width: 380px;
-  height: 280px;
-  background-color: white;
-  border-radius: 5px;
-  text-align: center;
-}
-h2 {
-  font-size: 30px;
-  margin: 25px 0 40px 0;
-}
-
-.exit {
-=======
-  display:none;  
-}
-
-.modal-content{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -502,14 +499,14 @@ h2 {
 }
 
 .modal-content-dark {
-  --accent-color: #D0D066;
+  --accent-color: #d0d066;
   --background-color: #333;
   --text-color: white;
 }
 
 .title {
   margin: 0;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .theme-toggle-button {
@@ -519,8 +516,8 @@ h2 {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  padding: .5em 1em;
-  border-radius: .3em;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
   border: none;
   outline: none;
   transition: var(--transition-delay);
@@ -528,7 +525,7 @@ h2 {
 }
 
 .theme-toggle-button .icon {
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 .theme-toggle-button:hover,
@@ -578,9 +575,8 @@ h2 {
   opacity: 1;
 }
 
-.exit{
-  color:  #005392;
->>>>>>> 3e563bb4086e085857584eecd5d429e7132297d4
+.exit {
+  color: #005392;
   position: absolute;
   top: 0;
   margin-top: 10px;
@@ -591,15 +587,7 @@ h2 {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-.modal-themes {
-  padding: 20px;
-}
-
-.modal-close-btn {
-  padding-top: 20px;
-=======
-.cancel-save-container{
+.cancel-save-container {
   position: absolute;
   right: 20px;
   padding: 10px 10px;
@@ -608,73 +596,68 @@ h2 {
 }
 
 .save {
-	background-color:  #005392;
+  background-color: #005392;
   border: 0.5px solid black;
-	border-radius: 30px;
-	color: white;
-	padding: 5px;
+  border-radius: 30px;
+  color: white;
+  padding: 5px;
   display: inline-block;
 }
 
 .save:hover {
-		
-		border: 2px solid  #000000;;
-	}
-
-.cancel{
-  border: none;
-	border-radius: 30px;
-	padding: 5px;
-  display: inline-block;
-
+  border: 2px solid #000000;
 }
 
- .cancel:hover{
-  background-color:  #f5f1f1;
-  border: 0.5px solid black;
-	border-radius: 30px;
-	color: white;
-	padding: 5px;
+.cancel {
+  border: none;
+  border-radius: 30px;
+  padding: 5px;
   display: inline-block;
- }
- 
- @media only screen and (max-width: 900px){
-   
-  .bg-modal{
+}
+
+.cancel:hover {
+  background-color: #f5f1f1;
+  border: 0.5px solid black;
+  border-radius: 30px;
+  color: white;
+  padding: 5px;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 900px) {
+  .bg-modal {
     width: 250px;
     height: 150px;
     top: 50%;
     left: 50%;
   }
-  
-  .modal-content{
+
+  .modal-content {
     height: 120px;
     width: 230px;
-  
- }
-
- .modal-title{
-   font-size: 18px;
- }
-
- .sun-moon-container{
-   display: none;
- }
-.swap-container{
-  width: 50px;
-  height: 20px;
-}
-
-.theme-toggle-button{
-  width: 100px;
-  height: 25px;
   }
- }
 
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .sun-moon-container {
+    display: none;
+  }
+  .swap-container {
+    width: 50px;
+    height: 20px;
+  }
+
+  .theme-toggle-button {
+    width: 100px;
+    height: 25px;
+  }
+}
 
 /*--- INTRO POPUP WINDOW --- */
 .intro-popup {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -693,21 +676,21 @@ h2 {
   height: 90%;
   border-radius: 5px;
   position: absolute;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   z-index: 1;
   margin: auto;
 }
 
-.intropopup-content h1 {  
-  font-family: 'Libre Baskerville', serif;
+.intropopup-content h1 {
+  font-family: "Libre Baskerville", serif;
   font-style: normal;
   font-weight: bold;
   font-size: 230px;
@@ -716,10 +699,10 @@ h2 {
   margin-bottom: 30px;
 }
 
-.intropopup-content p { 
-  font-family: 'Libre Baskerville', serif;
+.intropopup-content p {
+  font-family: "Libre Baskerville", serif;
   font-style: normal;
-  font-size: 18px; 
+  font-size: 18px;
   width: 50%;
   color: white;
   text-align: center;
@@ -734,13 +717,10 @@ h2 {
   position: absolute;
   top: 0;
   right: 14px;
->>>>>>> 3e563bb4086e085857584eecd5d429e7132297d4
 }
 
 @media only screen and (max-width: 900px) {
-
-
-  .intropopup-content h1 {   
+  .intropopup-content h1 {
     font-style: normal;
     font-weight: bold;
     font-size: 300px;
@@ -753,20 +733,19 @@ h2 {
     display: none;
   }
 
-    .intropopup-content p { 
-      display: flex;
-      width: 60%;  
-      font-style: normal;
-      font-size: 16px;
-      color: white;
-      text-align: center;
-      padding-top: 0px;
-      padding-bottom: 0px;
-    } 
+  .intropopup-content p {
+    display: flex;
+    width: 60%;
+    font-style: normal;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
+}
 
-  @media only screen and (max-width: 600px) {
-
+@media only screen and (max-width: 600px) {
   .intropopup-content h1 {
     font-style: normal;
     font-weight: bold;
@@ -776,15 +755,101 @@ h2 {
   }
 
   .intropopup-content span {
-      display: inline;
+    display: inline;
   }
 
-  .intropopup-content p { 
+  .intropopup-content p {
     font-style: normal;
-    font-size: 14px; 
+    font-size: 14px;
     width: 50%;
     color: white;
     text-align: center;
     padding-top: 70px;
   }
+}
+
+/*DROPDOWN / TEMPLATE CSS */
+/*
+.dropbtn {
+  background-color: #005392;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border-radius: 5px;
+  z-index: 1;
+  position: absolute;
+  right: 180px;
+  top: 500px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+.show {
+  display: block;
+}
+*/
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #005392;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  right: 180px;
+  top: 500px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: block;
 }
