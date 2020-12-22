@@ -96,22 +96,6 @@ function printNote(title, editorData, timestamp, favorite, template) {
     return favoriteImg;
 }
 
-
-
-/*
-//Funktion för att komplitera if-sats under denna funktion. 
-//findMyNotes funktionen loopar igenom varje item, om den hittar key med propertyName "myNotes" return true && nu är båda parametrarna i if-satsen godkända och kan gå in.
-function findMyNotes(){
-    for(var i=0; i < localStorage.length; i++){
-        var propertyName = localStorage.key(i);
-        if(propertyName == "myNotes"){
-            return true;
-        }
-    }
-    return false;
-}
-*/
-
 //---- collect array objects from local storage
 function collectFromLocalStorage() {
     if (localStorage.getItem("myNotes") !== null) {
@@ -122,7 +106,7 @@ function collectFromLocalStorage() {
     }
 };
 
-//---- remove note from sidebar
+//---- remove note from grey sidebar
 function unprint(title) {
     let menuList = document.querySelector("#noteList").children;
     for (var i = 0; i < menuList.length; i++) {
@@ -172,7 +156,7 @@ var curTemplate;
 const currentTemplate = document.getElementById("editor");
 const createNote = document.forms.note;
 createNote.addEventListener("submit", function (e) {
-    //e.preventDefault(); //Sidan behöver laddas om för att inte bugga favorite funktionen efter att en note skapas
+    e.preventDefault();
 
     if (getActiveNote()) {
         let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
@@ -243,12 +227,10 @@ function displayActiveNote(clickedID) {
     }
 }
 
-
 //  --- new note button
 document.querySelector("body > div.tabbed-content > ul > li:nth-child(2)").addEventListener("click", function (e) {
     location.reload();
 })
-
 
 //  --- delete note button
 document.querySelector("#deleteNote").addEventListener("click", function (e) {
@@ -261,9 +243,7 @@ document.querySelector("#deleteNote").addEventListener("click", function (e) {
     });
     localStorage.setItem("myNotes", JSON.stringify(allNotes));
     location.reload();
-
 });
-
 
 //  --- print note button
 document.querySelector("body > div.tabbed-content > ul > li:nth-child(4)").addEventListener("click", function (e) {
@@ -280,7 +260,8 @@ document.querySelector("body > div.tabbed-content > ul > li:nth-child(4)").addEv
     a.document.write('</body></html>');
     a.document.close();
     a.print();
-})
+});
+
 //search for notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 const search = document.querySelector('input[name="search"]');
@@ -296,7 +277,6 @@ search.addEventListener('keyup', function (e) {
         }
     })
 });
-
 
 // Favorite Function START:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -343,62 +323,11 @@ function handleFavoriteButton(favoriteButton) {
                 }
             }
             localStorage.setItem("myNotes", JSON.stringify(allNotes));
-
         }
-
     });
 }
+
 document.querySelectorAll(".favorite").forEach(handleFavoriteButton);
-/*
-document.querySelectorAll(".favorite").forEach(favoriteButton => {
-    favoriteButton.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        var note = e.target.parentElement; //Parent i det här fallet är den skapade noten
-
-        //Här skapas favoritnoten.
-        let title = note.childNodes[0].textContent;
-        let editorData = note.childNodes[2].textContent; //hämta vald notes content
-        let timestamp = note.childNodes[1].textContent; // hämta datumet också
-        let favorite = note.childNodes[3].textContent;
-
-        // ATT GÖRA FAVORITER(::TRUE) LÄGGS IN I favoriteNotes arrayen.
-        //testconetent kan inte vara boolean var tvungen att ändra till "string"
-        if (e.target.textContent == "false") {
-            favorite = e.target.textContent = "true";
-            e.target.src = "img/star-solid.svg";
-
-            for (var i = 0; i < allNotes.length; i++) {
-                //console.log("NUMBER FROM ALLNOTES NOTE: " + JSON.stringify(allNotes[i].timestamp));
-                if (allNotes[i].title == title) {
-                    allNotes[i].favorite = "true";
-                }
-            }
-            localStorage.setItem("myNotes", JSON.stringify(allNotes));
-            //localStorage.setItem("myFavoriteNotes", JSON.stringify(favoriteNotes));
-
-            // uppdatera favorites i local
-            // * for loop ittererar genom allNotes
-            // * i foor loopen ska det vara en if-sats
-        } else if (e.target.textContent == "true") {
-            e.target.textContent = "false";
-            e.target.src = "img/star-regular.svg";
-
-            for (var i = 0; i < allNotes.length; i++) {
-                //console.log("NUMBER FROM ALLNOTES NOTE: " + JSON.stringify(allNotes[i].timestamp));
-                if (allNotes[i].title == title) {
-                    allNotes[i].favorite = "false";
-                }
-            }
-            localStorage.setItem("myNotes", JSON.stringify(allNotes));
-
-        }
-
-    });
-});
-*/
-
-// Favorite Function END:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 // List all favorites function START :::::::::::::::::::::::::::::::::::::::::::::::::::
 document.getElementById("listFavorites").addEventListener("click", function () {
@@ -416,9 +345,6 @@ document.getElementById("listFavorites").addEventListener("click", function () {
 
 });
 
-
-
-
 //Swap background:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 // Open Modal window
@@ -430,7 +356,6 @@ document.getElementById('btnSettings').addEventListener('click', function () {
 document.querySelector('.exit').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
-
 
 // Close Modal windowv via the  cancel btn 
 document.querySelector('.cancel').addEventListener('click', function () {
@@ -480,14 +405,6 @@ darkModeToggleBtn.addEventListener('click', function () {
     }
 });
 
-//----- Dark mode previous ---
-/*document.querySelector('.theme-toggle-button').addEventListener('click', function () {
-    document.body.classList.toggle('modal-content-dark');
-    document.getElementById('title').classList.toggle('setTitle-dark');
-    document.getElementById('noteList').classList.toggle('note-list-dark');
-    document.getElementById('PanelAddNote').classList.toggle('toolbox-dark');
-});*/
-
 //----- Intro popup ----
 
 // ---- Open intro-modal window
@@ -496,7 +413,7 @@ document.querySelector('ul.leftTabs > li:first-child').addEventListener('click',
 });
 
 
-//  -- POPUP on first visit
+//  -- Intro pop-up on first visit
 console.log(localStorage.getItem('modalopened'))
 if (!localStorage.getItem('modalopened')) {
     document.querySelector('.intro-popup').style.display = 'flex';
