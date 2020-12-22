@@ -1,26 +1,27 @@
 
 
-# Quire – the note-book  in your browser
+# Quire – the notebook  in your browser
 
-“Quire” is the new multifunctional note-book in your browser. This product allows you to create and personalize your notes and store them in local storage. 
-HTLM 5, CSS3, JS and  the  rich text editor library CK Editor 5 have been used to develop the notebook. It  is  responsive and compatible with Chrome, FireFox and Safari.
+Quire is the new multifunctional notebook in your browser. It allows you to create and personalize your notes and store them in local storage. You can  mark your note as favourite, search for yur notes and delete them.
+<br>
+<br>
+HTLM 5, CSS3, JS and  the  rich text editor library CK Editor 5 have been used to develop the notebook. It  is  responsive and compatible with Chrome, FireFox and Safari. Quire is available in dark mode.   
 
-
-##### Functions
-Create notes, search, save, update, delete and mark your note as favourite.
-Quire is available in dark mode.   
-
+<br>
 <img src="img/github/desktop_view.png" width="300px" height="200px"   align="center" >
 <br>
-<br>
+
 
 
 
 ## The process 
-The project was set up as if it was in for a company on the market . The project had its own project owner and a CTO and a scrum methodology was used to develop the note-book. The group members daily scrums, weekly meetings with the project owner and weekly code reviews with the CTO. Feel free to look at our scrum board on [Trello](https://trello.com/b/88BX5SUp/team-template)
+The project was set up as if it was for a tech company. The project had its own project owner and a CTO and a scrum methodology was used to develop the notebook. The group members had daily scrums, weekly meetings with the project owner and weekly code reviews with the CTO. <br> 
+Feel free to look at the  scrum board on [Trello](https://trello.com/b/88BX5SUp/team-template)
+<br>
+<br>
+
 ## Contributors 
-<br>
-<br>
+
 <br>
 
 <img src="img/github/negin.jpg" width="150px" height="150px" align="left" padding="60px">
@@ -51,5 +52,8 @@ Github & LinkedIn
 <br>
 <br>
 
+### Rocky Miah
+Production focus: <br>
+Github & LinkedIn
 
 
