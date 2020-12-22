@@ -1,17 +1,24 @@
 
 
+
 # Quire – the notebook  in your browser
 
 Quire is the new multifunctional notebook in your browser. It allows you to create and personalize your notes and store them in local storage. You can  mark your note as favourite, search for yur notes and delete them.
 <br>
-<br>
+
 HTLM 5, CSS3, JS and  the  rich text editor library CK Editor 5 have been used to develop the notebook. It  is  responsive and compatible with Chrome, FireFox and Safari. Quire is available in dark mode.   
-
 <br>
-<img src="img/github/desktop_view.png" width="300px" height="200px"   align="center" >
 <br>
 
 
+
+
+
+
+  <tr >
+    <td><img src="img/github/desktop_view.png" width=300 height=200  float="left" padding="40px"></td>
+     <td><img src="img/github/mobile_view.png" width=60 height=110></td>
+  </tr>
 
 
 ## The process 
