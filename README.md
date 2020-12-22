@@ -10,16 +10,18 @@ HTLM 5, CSS3, JS and  the  rich text editor library CK Editor 5 have been used t
 <br>
 <br>
 
+Quire is the new multifunctional notebook in your browser. It allows you to create and personalize your notes and store them in local storage. You can  mark your note as favourite, search for yur notes and delete them.
+<br>
 
 
 
 
 
-  <tr>
+  <tr >
     <td><img src="img/github/desktop_view.png" width=300 height=200  float="left" padding="40px"></td>
      <td><img src="img/github/mobile_view.png" width=60 height=110></td>
   </tr>
-<br>
+
 
 ## The process 
 The project was set up as if it was for a tech company. The project had its own project owner and a CTO and a scrum methodology was used to develop the notebook. The group members had daily scrums, weekly meetings with the project owner and weekly code reviews with the CTO. Feel free to look at the  scrum board on [Trello](https://trello.com/b/88BX5SUp/team-template).
