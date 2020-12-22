@@ -382,27 +382,6 @@ body {
   width: 20ch;
 }
 
-/*
-#tabbed-content li {
-  display: inline-block;
-  padding: 10px 14px;
-  background: #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-#tabbed-content .panel {
-  display: none;
-  border: 1px solid #ddd;
-  padding: 0 10px;
-  border-radius: 4px;
-} 
-
-#tabbed-content .panel.active {
-  display: block;
-}
-
 /* CK editor styling */
 
 .noteContainer {
@@ -411,6 +390,8 @@ body {
   width: 70%;
   float: left;
 }
+
+/* SAVE BUTTON */
 
 .noteContainer input[type="submit"] {
   background-color: #005392;
@@ -429,7 +410,7 @@ body {
   top: 400px;
 }
 
-/* --- DELETE NOTE BUTTON */
+/* DELETE NOTE BUTTON */
 
 .noteContainer input[type="button"] {
   background-color: #005392;
@@ -448,7 +429,7 @@ body {
   top: 450px;
 }
 
-.noteContainer .dropbtn {
+.noteContainer .dropdown {
   background-color: #005392;
   color: white;
   border: none;
@@ -475,7 +456,7 @@ body {
     right: 6%;
   }
 
-  .noteContainer .dropbtn {
+  .noteContainer .dropdown {
     right: 6%;
   }
 }
@@ -512,7 +493,7 @@ body {
 }
 
 @media only screen and (max-width: 1000px) {
-  .noteContainer .dropbtn {
+  .noteContainer .dropdown {
     background-color: #005392;
     color: white;
     border: none;
@@ -569,15 +550,11 @@ body {
 /*Template CSS*/
 
 .template1 {
-  font-family: "Londrina Shadow", cursive;
+  font-family: "IM Fell Great Primer SC", serif;
   background: url(https://cdn.discordapp.com/attachments/749985626933166155/790889886730158090/anna-template.png)
     no-repeat;
   font-size: 20px !important;
 }
-/*.template1::placeholder {
-  font-family: "Special Elite", cursive;
-  background-color: rgb(245, 136, 151);
-}*/
 
 .template2 {
   /*background-color: red !important;*/
@@ -907,51 +884,8 @@ body {
   }
 }
 
-/*DROPDOWN / TEMPLATE CSS */
-/*
-.dropbtn {
-  background-color: #005392;
-  color: white;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  width: 120px;
-  height: 40px;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  border-radius: 5px;
-  z-index: 1;
-  position: absolute;
-  right: 180px;
-  top: 500px;
-}
+/* DROPDOWN CSS */
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {
-  background-color: #ddd;
-}
-.show {
-  display: block;
-}
-*/
-
-/* Dropdown Button */
 .dropbtn {
   background-color: #005392;
   color: white;
