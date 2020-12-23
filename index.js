@@ -124,6 +124,8 @@ createNote.addEventListener("submit", function (e) {
         localStorage.setItem("myNotes", JSON.stringify(allNotes));
         document.querySelector("#noteList").innerHTML = ""; // tömmer listan
         collectFromLocalStorage(); //renderar listan
+        document.querySelectorAll(".favorite").forEach(handleFavoriteButton);
+        displayActiveNote(noteObj.timestamp)
     }
 
     else {
