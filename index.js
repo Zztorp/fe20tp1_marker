@@ -1,4 +1,3 @@
-
 let editor;
 let menuList = document.querySelector("#noteList");
 let li = document.createElement("li");
@@ -477,35 +476,5 @@ document.querySelector('.secondTemplate').addEventListener('click', function (e)
 });
 }
 
-/*document.getElementById('editor').addEventListener('click', function (e) {
-
-    console.log(getCurrentTemplate());
-    document.getElementById('editor').classList.add(getCurrentTemplate());
-});*/
-
-    
-        
-
-    /*var temp1ClassName = document.getElementsByClassName('template1');
-    var temp2ClassName = document.getElementsByClassName('template2');
-
-    console.log(temp1ClassName);
-
-    if(temp1ClassName == "template1"){
-        document.getElementById("title").className = "template1";
-        document.getElementById("editor").className = "template1";
-    }
-
-    if(temp2ClassName == "template2"){
-        document.getElementById("title").className = "template2";
-        document.getElementById("editor").className = "template2";
-    }*/
- 
-
-/*function template2Func() {
-    document.getElementById("title").className = "template2";
-    document.getElementById("editor").className = "template2";
-
-}*/
 
 // DropDown Function END
