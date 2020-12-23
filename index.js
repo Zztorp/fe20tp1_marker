@@ -125,15 +125,6 @@ function updateNote() {
     localStorage.setItem("myNotes", JSON.stringify(allNotes));
 }
 
-function updateNote() {
-    let noteObj = allNotes.find(note => note.timestamp == getActiveNote());
-    noteObj.editorData = editor.getData();
-    noteObj.title = createNote.querySelector('#title').value;
-    noteObj.template = getCurrentTemplate();
-    localStorage.setItem("myNotes", JSON.stringify(allNotes));
-}
-
-
 function getCurrentTemplate(){
 var curTemplate;
 
