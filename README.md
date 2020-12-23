@@ -1,6 +1,4 @@
 
-
-
 # Quire – the notebook  in your browser
 
 Quire is the new multifunctional notebook in your browser. It allows you to create and personalize your notes and store them in local storage. You can  mark your note as favourite, search for yur notes and delete them.
@@ -8,6 +6,14 @@ Quire is the new multifunctional notebook in your browser. It allows you to crea
 
 HTLM 5, CSS3, JS and  the  rich text editor library CK Editor 5 have been used to develop the notebook. It  is  responsive and compatible with Chrome, FireFox and Safari. Quire is available in dark mode.   
 <br>
+  
+#### Functions in the notebook:
+  * Create notes
+  * Save and uppdate notes
+  * Change the formating
+  * Highlight your favourite notes
+  * Switch to dark mode 
+
 
 
 <br>
@@ -17,7 +23,7 @@ HTLM 5, CSS3, JS and  the  rich text editor library CK Editor 5 have been used t
   </tr>
 
 
-## The process 
+##  Scrum methodology
 The project was set up as if it was for a tech company. The project had its own project owner and a CTO and a scrum methodology was used to develop the notebook. The group members had daily scrums, weekly meetings with the project owner and weekly code reviews with the CTO. Feel free to look at the  scrum board on [Trello](https://trello.com/b/88BX5SUp/team-template).
 <br>
 <br>
